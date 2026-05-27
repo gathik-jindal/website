@@ -58,8 +58,8 @@ button {
 .logo span {
   display: inline-block;
   margin-right: 1px;
-  padding: 1px 3px;
-  border: 2px solid var(--ink);
+  padding: 1px 1px 0;
+  border-bottom: 3px solid var(--ink);
   line-height: 1;
 }
 
@@ -78,12 +78,78 @@ button {
   min-height: 50px;
   padding: 0 22px;
   border-right: 1.5px solid var(--line);
+  background: var(--paper);
   font-size: 14px;
+  position: relative;
+  isolation: isolate;
+  transition: transform 140ms ease;
+}
+
+.topnav a[aria-current="page"] {
+  background: var(--paper-deep);
 }
 
 .topnav a:hover,
-.topnav a[aria-current="page"] {
-  background: var(--paper-deep);
+.icon-button:hover,
+.upgrade:hover,
+.side-link:hover,
+.dark-button:hover,
+.outline-button:hover,
+.panel-cta:hover,
+.post-card:hover,
+.tag:hover,
+.course-card:hover,
+.plan-card:hover,
+.contact-panel:hover,
+.side-card:hover,
+.coach-card:hover {
+  z-index: 12;
+  transform: translate(4px, -4px);
+  outline: 1.5px solid var(--line);
+  outline-offset: -1.5px;
+}
+
+.topnav a::before,
+.icon-button::before,
+.upgrade::before,
+.side-link::before,
+.dark-button::before,
+.outline-button::before,
+.panel-cta::before,
+.post-card::before,
+.tag::before,
+.course-card::before,
+.plan-card::before,
+.contact-panel::before,
+.side-card::before,
+.coach-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0;
+  border: 1.5px solid var(--line);
+  background: repeating-linear-gradient(45deg, var(--ink), var(--ink) 4px, var(--paper) 4px, var(--paper) 8px);
+  transform: translate(-4px, 4px);
+  clip-path: polygon(0 0, 4px 0, 4px calc(100% - 4px), 100% calc(100% - 4px), 100% 100%, 0 100%);
+  transition: opacity 140ms ease;
+}
+
+.topnav a:hover::before,
+.icon-button:hover::before,
+.upgrade:hover::before,
+.side-link:hover::before,
+.dark-button:hover::before,
+.outline-button:hover::before,
+.panel-cta:hover::before,
+.post-card:hover::before,
+.tag:hover::before,
+.course-card:hover::before,
+.plan-card:hover::before,
+.contact-panel:hover::before,
+.side-card:hover::before,
+.coach-card:hover::before {
+  opacity: 1;
 }
 
 .icon-button {
@@ -113,11 +179,12 @@ button {
 .app-shell {
   display: grid;
   grid-template-columns: 185px minmax(0, 1fr);
-  max-width: 1040px;
+  width: min(100% - 48px, 1450px);
   min-height: calc(100vh - 51px);
   margin: 0 auto;
   border-left: 1.5px solid var(--line);
   border-right: 1.5px solid var(--line);
+  background: var(--paper);
 }
 
 .sidebar {
@@ -132,10 +199,13 @@ button {
   min-height: 36px;
   padding: 0 14px;
   border-bottom: 1.5px solid var(--line);
+  background: var(--paper);
   font-size: 13px;
+  position: relative;
+  isolation: isolate;
+  transition: transform 140ms ease;
 }
 
-.side-link:hover,
 .side-link.is-active {
   background: var(--paper-deep);
 }
@@ -158,6 +228,10 @@ button {
 .side-card {
   padding: 16px;
   border-bottom: 1.5px solid var(--line);
+  background: var(--paper);
+  position: relative;
+  isolation: isolate;
+  transition: transform 140ms ease;
 }
 
 .side-card h2 {
@@ -237,7 +311,11 @@ button {
   flex-direction: column;
   justify-content: center;
   padding: 18px;
+  background: var(--paper);
   text-align: center;
+  position: relative;
+  isolation: isolate;
+  transition: transform 140ms ease;
 }
 
 .coach-card h3 {
@@ -292,6 +370,9 @@ button {
   color: var(--paper);
   font-size: 12px;
   font-weight: 700;
+  position: relative;
+  isolation: isolate;
+  transition: transform 140ms ease;
 }
 
 .panel-cta-alt {
@@ -338,6 +419,10 @@ button {
   min-height: 220px;
   padding: 22px 18px;
   border-right: 1.5px solid var(--line);
+  background: var(--paper);
+  position: relative;
+  isolation: isolate;
+  transition: transform 140ms ease;
 }
 
 .plan-card {
@@ -370,6 +455,9 @@ button {
   border-radius: 3px;
   font-size: 12px;
   font-weight: 700;
+  position: relative;
+  isolation: isolate;
+  transition: transform 140ms ease;
 }
 
 .dark-button {
@@ -379,7 +467,7 @@ button {
 }
 
 .outline-button {
-  background: transparent;
+  background: var(--paper);
   cursor: pointer;
 }
 
@@ -389,6 +477,10 @@ button {
   justify-content: space-between;
   gap: 18px;
   padding: 20px 18px;
+  background: var(--paper);
+  position: relative;
+  isolation: isolate;
+  transition: transform 140ms ease;
 }
 
 .contact-panel .dark-button {
@@ -411,13 +503,15 @@ button {
   padding: 0 10px;
   border: 1.5px solid var(--line);
   border-radius: 999px;
-  background: transparent;
+  background: var(--paper);
   cursor: pointer;
   font-size: 12px;
+  position: relative;
+  isolation: isolate;
+  transition: transform 140ms ease;
 }
 
-.tag.is-active,
-.tag:hover {
+.tag.is-active {
   background: var(--yellow);
 }
 
@@ -442,10 +536,13 @@ button {
   background: var(--paper);
   cursor: pointer;
   text-align: left;
+  position: relative;
+  isolation: isolate;
+  transition: transform 140ms ease;
 }
 
 .post-card:hover {
-  background: var(--paper-deep);
+  background: var(--paper);
 }
 
 .post-card h2 {
@@ -524,6 +621,7 @@ button {
 
   .app-shell {
     grid-template-columns: 1fr;
+    width: 100%;
     border: 0;
   }
 
