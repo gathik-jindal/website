@@ -4,7 +4,7 @@ Status: #Completed #ProperNotes
 
 Tags: [[CRLS]] [[Data Structures and Algorithms]]
 
-# Introduction
+# Loop Invariant
 
 There are multiple ways to explain what "Loop Invariant" is, here are some offered by different websites,
 

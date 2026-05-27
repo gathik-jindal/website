@@ -4,7 +4,7 @@ Status: #Completed #ProperNotes #Small
 
 Tags: [[Data Structures and Algorithms]] [[Sorting]]
 
-# Principle
+# Insertion Sort
 
 Insertion Sort is an efficient algorithm $O(n^2)$ that helps in sorting a group of elements that have a ==specific relation or property== that allows them to be ==re-arranged such that the property hold between any two adjacent elements==.
 

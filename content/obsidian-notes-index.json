@@ -44,7 +44,7 @@
   },
   {
     "slug": "bios",
-    "title": "Introduction",
+    "title": "BIOS",
     "description": "BIOS, short for Basic Input/Output System, is a type of firmware that plays a crucial role in the startup process of a computer. It is a software program stored on a small memory c",
     "dateLabel": "2nd Jul '24, 12:10pm",
     "tags": [
@@ -324,7 +324,7 @@
   },
   {
     "slug": "insertion-sort",
-    "title": "Principle",
+    "title": "Insertion Sort",
     "description": "Insertion Sort is an efficient algorithm $O(n^2)$ that helps in sorting a group of elements that have a ==specific relation or property== that allows them to be ==re arranged such ",
     "dateLabel": "2nd Jun '24, 06:59am",
     "tags": [
@@ -421,7 +421,7 @@
   },
   {
     "slug": "loop-invariant",
-    "title": "Introduction",
+    "title": "Loop Invariant",
     "description": "There are multiple ways to explain what \"Loop Invariant\" is, here are some offered by different websites,",
     "dateLabel": "2nd Jun '24, 07:09am",
     "tags": [
@@ -493,6 +493,22 @@
       "Small"
     ],
     "file": "obsidian-files/2 - Full Notes/Network Transparency.md"
+  },
+  {
+    "slug": "obsidian-workflow",
+    "title": "Obsidian Workflow",
+    "description": "This site now renders notes directly from the copied Obsidian export in obsidian files .",
+    "dateLabel": "28th May '26, 01:15am",
+    "tags": [
+      "Portfolio",
+      "Obsidian",
+      "Publishing"
+    ],
+    "status": [
+      "ProperNotes",
+      "Live"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Obsidian Workflow.md"
   },
   {
     "slug": "openclaw",

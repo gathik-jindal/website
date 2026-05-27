@@ -4,7 +4,7 @@ Status: #Completed  #ProperNotes
 
 Tags: [[OS]] [[Boot Up]]
 
-# Introduction
+# BIOS
 
 BIOS, short for Basic Input/Output System, is a type of firmware that plays a crucial role in the startup process of a computer. It is a software program stored on a small memory chip in the system’s motherboard.
 

@@ -7,3 +7,4 @@
 - [] Add writing.
 - [] add alternate email.
 - [] remove file extensions from links.
+- [] make the links in the notes actually work.

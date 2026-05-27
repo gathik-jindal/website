@@ -20,6 +20,7 @@ async function loadPosts() {
     renderTags();
     renderPosts();
     renderSidebarNotes();
+    openPostFromHash();
   } catch {
     postGrid.innerHTML = '<p class="reader">Notes need an index. Run <code>python scripts/build_obsidian_index.py</code>, then serve the site locally.</p>';
   }
@@ -71,7 +72,7 @@ function getVisiblePosts() {
   });
 }
 
-async function openPost(slug) {
+async function openPost(slug, updateHash = true) {
   const post = posts.find((item) => item.slug === slug);
   if (!post) return;
 
@@ -81,7 +82,15 @@ async function openPost(slug) {
   reader.hidden = false;
   postGrid.hidden = true;
   highlightActiveNote(slug);
+  if (updateHash && window.location.hash !== `#${slug}`) {
+    history.replaceState(null, "", `#${slug}`);
+  }
   reader.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function openPostFromHash() {
+  const slug = decodeURIComponent(window.location.hash.replace("#", ""));
+  if (slug) openPost(slug, false);
 }
 
 function highlightActiveNote(slug) {
@@ -261,6 +270,9 @@ readerClose.addEventListener("click", () => {
   reader.hidden = true;
   postGrid.hidden = false;
   highlightActiveNote("");
+  history.replaceState(null, "", window.location.pathname);
 });
+
+window.addEventListener("hashchange", openPostFromHash);
 
 loadPosts();
