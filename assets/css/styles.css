@@ -213,6 +213,56 @@ button {
   line-height: 1.35;
 }
 
+.sidebar-notes {
+  margin-top: 28px;
+  border-top: 1.5px solid var(--line);
+}
+
+.sidebar-notes .panel-label {
+  padding: 14px 14px 0;
+}
+
+.sidebar-note-list {
+  display: grid;
+  max-height: calc(100vh - 270px);
+  overflow-y: auto;
+}
+
+.sidebar-note {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  padding: 10px 14px;
+  border: 0;
+  border-bottom: 1.5px solid var(--line);
+  background: var(--paper);
+  cursor: pointer;
+  text-align: left;
+}
+
+.sidebar-note span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.sidebar-note small,
+.sidebar-empty {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.sidebar-empty {
+  margin: 0;
+  padding: 10px 14px;
+}
+
+.sidebar-note.is-selected {
+  background: var(--paper-deep);
+}
+
 .dashboard {
   min-width: 0;
 }
@@ -376,6 +426,9 @@ button {
 .split-grid,
 .blog-board {
   display: grid;
+}
+
+.split-grid {
   grid-template-columns: minmax(0, 1fr) minmax(220px, 0.72fr);
 }
 
@@ -485,13 +538,43 @@ button {
 
 .filter-panel {
   padding: 18px;
-  border-right: 1.5px solid var(--line);
+}
+
+.note-search {
+  width: 100%;
+  min-height: 42px;
+  margin-bottom: 18px;
+  padding: 0 12px;
+  border: 1.5px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+}
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.filter-row .panel-label {
+  margin: 0;
+}
+
+.tag-toggle {
+  min-height: 30px;
 }
 
 .tag-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+.tag-list.is-collapsed .tag:nth-of-type(n + 9) {
+  display: none;
 }
 
 .tag {
@@ -514,7 +597,7 @@ button {
 
 .post-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .post-card {
@@ -529,6 +612,10 @@ button {
   background: var(--paper);
   cursor: pointer;
   text-align: left;
+}
+
+.post-card.is-selected {
+  background: var(--paper-deep);
 }
 
 .post-card h2 {
@@ -569,11 +656,30 @@ button {
   margin-top: 30px;
 }
 
+.reader h3,
+.reader h4 {
+  margin-top: 24px;
+}
+
 .reader p,
 .reader li {
   max-width: 720px;
   color: var(--muted);
   line-height: 1.65;
+}
+
+.reader a {
+  border-bottom: 1.5px solid var(--line);
+  font-weight: 700;
+}
+
+.reader blockquote {
+  max-width: 720px;
+  margin: 18px 0;
+  padding: 12px 16px;
+  border-left: 6px solid var(--line);
+  background: var(--paper);
+  color: var(--muted);
 }
 
 .reader code {
@@ -587,6 +693,73 @@ button {
   border: 1.5px solid var(--line);
   background: var(--ink);
   color: var(--paper);
+}
+
+.reader-note-head {
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1.5px solid var(--line);
+}
+
+.reader-status {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.reader-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.reader-tags span,
+.wiki-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0 8px;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.note-image {
+  display: block;
+  max-width: min(100%, 760px);
+  margin: 18px 0;
+  border: 1.5px solid var(--line);
+  background: var(--paper);
+}
+
+.table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 18px 0;
+  border: 1.5px solid var(--line);
+}
+
+.reader table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  background: var(--paper);
+}
+
+.reader th,
+.reader td {
+  padding: 10px;
+  border: 1.5px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.reader th {
+  background: var(--paper-deep);
 }
 
 @media (max-width: 840px) {
@@ -631,7 +804,6 @@ button {
 
   .hero-copy,
   .course-card,
-  .filter-panel,
   .contact-intro {
     border-right: 0;
   }
@@ -647,6 +819,10 @@ button {
   }
 
   .post-card {
+    grid-template-columns: 1fr;
+  }
+
+  .post-grid {
     grid-template-columns: 1fr;
   }
 

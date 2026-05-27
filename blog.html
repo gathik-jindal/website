@@ -40,21 +40,30 @@
           <p>Looking for internships, collaborations, and ambitious web or AI projects.</p>
           <a class="dark-button hover-pop" href="mailto:gathik.jindal@outlook.com">Start conversation</a>
         </div>
+        <div class="sidebar-notes">
+          <p class="panel-label">All notes</p>
+          <div class="sidebar-note-list" id="sidebarNoteList" aria-label="All notes"></div>
+        </div>
       </aside>
 
       <main class="dashboard">
         <section class="panel header-panel">
-          <p class="panel-label">Writing dashboard</p>
-          <h1>Public notes from a private thinking system.</h1>
+          <p class="panel-label">Notes dashboard</p>
+          <h1>Concrete notes from my Obsidian vault.</h1>
         </section>
 
         <section class="blog-board">
-          <aside class="panel filter-panel">
-            <p class="panel-label">Filter</p>
-            <div class="tag-list" id="tagList">
+          <div class="panel filter-panel">
+            <label class="panel-label" for="noteSearch">Search notes</label>
+            <input class="note-search" id="noteSearch" type="search" placeholder="Search by title, tag, or summary">
+            <div class="filter-row">
+              <p class="panel-label">Tags</p>
+              <button class="outline-button hover-pop tag-toggle" id="tagToggle" type="button">Show more</button>
+            </div>
+            <div class="tag-list is-collapsed" id="tagList">
               <button class="tag hover-pop is-active" type="button" data-tag="all">All</button>
             </div>
-          </aside>
+          </div>
           <div class="post-area">
             <div class="post-grid" id="postGrid" aria-live="polite"></div>
             <article class="panel reader" id="reader" hidden>

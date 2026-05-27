@@ -32,6 +32,17 @@ http://127.0.0.1:4173
 2. Add a matching entry to `content/posts-index.json`.
 3. Keep your private Obsidian vault out of this repository.
 
+## Build the Notes Index
+
+The writing page reads top-level markdown files from `obsidian-files/2 - Full Notes`.
+After copying or editing notes, rebuild the browser index:
+
+```bash
+python scripts/build_obsidian_index.py
+```
+
+Subfolders, source material, and tag-only notes are ignored for now. Assets are loaded from `obsidian-files/6 - Assets`.
+
 ## Copy Obsidian Notes Locally
 
 To copy your private Obsidian folder into an ignored local directory:

@@ -1,0 +1,824 @@
+[
+  {
+    "slug": "vs-in-javascript",
+    "title": "== VS === In JavaScript",
+    "description": "The strict equality operator ( === ) behaves identically to the abstract equality operator ( == ) except no type conversion is done, and the types must be the same to be considered",
+    "dateLabel": "24th Jun '24, 13:05pm",
+    "tags": [
+      "JavaScript"
+    ],
+    "status": [
+      "Small",
+      "Completed"
+    ],
+    "file": "obsidian-files/2 - Full Notes/== VS === In JavaScript.md"
+  },
+  {
+    "slug": "basic-linux-concepts-terminology",
+    "title": "Basic Linux Concepts & Terminology",
+    "description": "Updated Version on this topic: GUI In Linux",
+    "dateLabel": "9th Jun '24, 11:31am",
+    "tags": [
+      "Linux",
+      "Terminal"
+    ],
+    "status": [
+      "InProgress",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Basic Linux Concepts & Terminology.md"
+  },
+  {
+    "slug": "binary-heap",
+    "title": "Binary Heap",
+    "description": "A Binary Heap is a special type of complete binary tree, meaning all levels are filled except possibly the last, which is filled from left to right.",
+    "dateLabel": "14th May '26, 09:58pm",
+    "tags": [
+      "Data Structures and Algorithms"
+    ],
+    "status": [
+      "ProperNotes",
+      "Completed"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Binary Heap.md"
+  },
+  {
+    "slug": "bios",
+    "title": "Introduction",
+    "description": "BIOS, short for Basic Input/Output System, is a type of firmware that plays a crucial role in the startup process of a computer. It is a software program stored on a small memory c",
+    "dateLabel": "2nd Jul '24, 12:10pm",
+    "tags": [
+      "OS",
+      "Boot Up"
+    ],
+    "status": [
+      "Completed",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/BIOS.md"
+  },
+  {
+    "slug": "brute-force-all-possible-subsets-using-bitmasks",
+    "title": "Brute Force All Possible Subsets Using Bitmasks",
+    "description": "Question : ==Given an array find all its possible permutations==.",
+    "dateLabel": "21st Jun '24, 16:36pm",
+    "tags": [
+      "Compi-Coding"
+    ],
+    "status": [
+      "Completed",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Brute Force All Possible Subsets Using Bitmasks.md"
+  },
+  {
+    "slug": "cat",
+    "title": "CAT",
+    "description": "The cat command in Linux is a powerful tool for ==manipulating files==. It is commonly used to ==display the content of existing files, concatenate multiple files, create new files",
+    "dateLabel": "9th Jun '24, 07:25am",
+    "tags": [
+      "Linux",
+      "Terminal",
+      "Linux File Editing"
+    ],
+    "status": [
+      "Small",
+      "Completed",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/CAT.md"
+  },
+  {
+    "slug": "compositing-window-manager",
+    "title": "Compositing Window Manager",
+    "description": "When using a == compositing window manager==, each application window has an off screen buffer into which the application draws. It is the task of the window manager to create a \"c",
+    "dateLabel": "12th Jun '24, 19:48pm",
+    "tags": [
+      "GUI",
+      "Linux"
+    ],
+    "status": [
+      "Completed"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Compositing Window Manager.md"
+  },
+  {
+    "slug": "configuring-bios-or-cmos",
+    "title": "Configuring BIOS or CMOS",
+    "description": "NOTE : If you don't understand what and how BIOS works or what CMOS is, then it would be beneficial to understand them first from here.",
+    "dateLabel": "2nd Jul '24, 13:20pm",
+    "tags": [
+      "OS",
+      "Boot Up"
+    ],
+    "status": [
+      "Completed",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Configuring BIOS or CMOS.md"
+  },
+  {
+    "slug": "containers",
+    "title": "Containers",
+    "description": "Containers are ==similar to VMs== but the major ==difference lies== in the fact that ==VMs simulate an entire machine, but a container only simulates an application==. It contains ",
+    "dateLabel": "6th Jun '24, 06:11am",
+    "tags": [
+      "Linux",
+      "OS",
+      "Containers"
+    ],
+    "status": [
+      "Completed",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Containers.md"
+  },
+  {
+    "slug": "cross-origin-resource-sharing-cors",
+    "title": "Cross-Origin Resource Sharing (CORS)",
+    "description": "Formally, Cross Origin Resource Sharing (CORS) is an HTTP header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from whic",
+    "dateLabel": "25th Jun '24, 13:56pm",
+    "tags": [],
+    "status": [],
+    "file": "obsidian-files/2 - Full Notes/Cross-Origin Resource Sharing (CORS).md"
+  },
+  {
+    "slug": "details-on-web-domains",
+    "title": "Details on Web Domains",
+    "description": "Internet is broader term for whole computer network no matter what protocol computers (servers) use. The world wide web is a narrower term denoting computers/network that provides ",
+    "dateLabel": "12th May '26, 09:45am",
+    "tags": [
+      "Web Dev",
+      "Network",
+      "JavaScript"
+    ],
+    "status": [
+      "ProperNotes",
+      "InProgress"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Details on Web Domains.md"
+  },
+  {
+    "slug": "different-ways-to-start-a-program-automatically",
+    "title": "Different Ways to Start a Program Automatically",
+    "description": "Before we can begin we need to understand the following files:",
+    "dateLabel": "14th Jul '24, 13:39pm",
+    "tags": [
+      "Linux",
+      "File System"
+    ],
+    "status": [
+      "InProgress"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Different Ways to Start a Program Automatically.md"
+  },
+  {
+    "slug": "disk-partitioning",
+    "title": "Disk Partitioning",
+    "description": "Disk partitioning or disk slicing is the creation of one or more regions on secondary storage, so that each region can be managed separately. These regions are called partitions. I",
+    "dateLabel": "3rd Jul '24, 11:58am",
+    "tags": [
+      "BIOS",
+      "Configuring BIOS or CMOS",
+      "OS",
+      "Boot Up",
+      "File System"
+    ],
+    "status": [
+      "InProgress",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Disk Partitioning.md"
+  },
+  {
+    "slug": "display-manager",
+    "title": "Display Manager",
+    "description": "First of all, this is the worst name given to a piece of software, it should be called ==login manager== and not display manager, since it handles the UI and start up at the time o",
+    "dateLabel": "9th Jun '24, 08:11am",
+    "tags": [
+      "Linux",
+      "Terminal"
+    ],
+    "status": [
+      "Completed",
+      "Small"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Display Manager.md"
+  },
+  {
+    "slug": "efi",
+    "title": "EFI",
+    "description": "The EFI (Extensible Firmware Interface) or UEFI (Unified Extensible Firmware Interface) boot process is a modern replacement for the legacy BIOS boot process. It is designed to ini",
+    "dateLabel": "20th Jan '25, 20:18pm",
+    "tags": [
+      "Boot Up",
+      "OS",
+      "File System"
+    ],
+    "status": [
+      "InProgress",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/EFI.md"
+  },
+  {
+    "slug": "event-listeners-in-javascript",
+    "title": "Event listeners in Javascript",
+    "description": "An event is an action that the web browser can detect and respond to, like a mouse click or a page load.",
+    "dateLabel": "21st Dec '24, 17:42pm",
+    "tags": [
+      "Programming languages",
+      "JavaScript",
+      "Web Dev"
+    ],
+    "status": [
+      "Completed",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Event listeners in Javascript.md"
+  },
+  {
+    "slug": "event-loop-in-javascript",
+    "title": "Event Loop",
+    "description": "At a high level, the event loop is a system for managing code execution. In the diagram, you can see an overview of how the parts that make up the event loop fit together.",
+    "dateLabel": "27th Jun '24, 17:23pm",
+    "tags": [
+      "Asynchronous Programming",
+      "JavaScript"
+    ],
+    "status": [
+      "ProperNotes",
+      "Completed"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Event Loop In JavaScript.md"
+  },
+  {
+    "slug": "file-system",
+    "title": "File System",
+    "description": "Links: Disk Partitioning EFI",
+    "dateLabel": "14-02-2025, 14:55",
+    "tags": [],
+    "status": [
+      "InProgress",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/File System.md"
+  },
+  {
+    "slug": "glx",
+    "title": "GLX",
+    "description": "GLX is an extension to the X Window System. providing an interface between OpenGL and the X Window System as well as extensions to OpenGL itself. It enables programs wishing to use",
+    "dateLabel": "12th Jun '24, 19:45pm",
+    "tags": [
+      "Linux",
+      "GUI"
+    ],
+    "status": [
+      "Completed",
+      "Small"
+    ],
+    "file": "obsidian-files/2 - Full Notes/GLX.md"
+  },
+  {
+    "slug": "gui-in-linux",
+    "title": "GUI In Linux",
+    "description": "aliases:",
+    "dateLabel": "---",
+    "tags": [],
+    "status": [
+      "Completed",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/GUI In Linux.md"
+  },
+  {
+    "slug": "hotkey-capturing",
+    "title": "Hotkey Capturing",
+    "description": "In Linux, key capture and event handling work through the kernel and user space programs, relying on a well defined event subsystem. Here's an overview of how key captures work and",
+    "dateLabel": "10th Jan '25, 11:55am",
+    "tags": [
+      "Linux",
+      "OS"
+    ],
+    "status": [
+      "InProgress",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Hotkey Capturing.md"
+  },
+  {
+    "slug": "import-a-file-from-a-parent-directory-python",
+    "title": "Import a file from a parent directory python",
+    "description": "In order to import a module, the ==directory having that module== must be ==present== in == PYTHONPATH ==. It is an ==environment variable== that contains the ==list of packages lo",
+    "dateLabel": "4th Jun '24, 16:25pm",
+    "tags": [
+      "Python",
+      "PythonSys",
+      "PythonOS"
+    ],
+    "status": [
+      "Completed",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Import a file from a parent directory python.md"
+  },
+  {
+    "slug": "insertion-sort",
+    "title": "Principle",
+    "description": "Insertion Sort is an efficient algorithm $O(n^2)$ that helps in sorting a group of elements that have a ==specific relation or property== that allows them to be ==re arranged such ",
+    "dateLabel": "2nd Jun '24, 06:59am",
+    "tags": [
+      "Data Structures and Algorithms",
+      "Sorting"
+    ],
+    "status": [
+      "Completed",
+      "ProperNotes",
+      "Small"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Insertion Sort.md"
+  },
+  {
+    "slug": "introduction-to-machine-learning-supervised-learning",
+    "title": "Introduction To Machine Learning",
+    "description": "Machine learning is about teaching computers to learn from data\u2014improving their performance without being explicitly programmed. This broad umbrella includes a range of techniques:",
+    "dateLabel": "23rd May '25, 10:11pm",
+    "tags": [
+      "Graphs",
+      "Maths",
+      "Network",
+      "Undirected Graph",
+      "Machine Learning",
+      "Supervised Learning",
+      "Neural Networks"
+    ],
+    "status": [
+      "Completed",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Introduction To Machine Learning - Supervised Learning.md"
+  },
+  {
+    "slug": "introduction-to-quant-finance",
+    "title": "Introduction to Quant Finance",
+    "description": "What's quantitative investing? It means investing through predetermined mathematical models based on stock characteristics, without emotional intervention. It's about defining rule",
+    "dateLabel": "19th Mar '26, 12:02am",
+    "tags": [
+      "Quant Finance",
+      "Maths"
+    ],
+    "status": [
+      "InProgress"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Introduction to Quant Finance.md"
+  },
+  {
+    "slug": "is-python-object-oriented",
+    "title": "Origin of doubt",
+    "description": "This was a question that struck me while I was working on the ==Moore Machine project== with Abhirath and Aryan, Abhirath mentioned that ==python isn't completely OOP==, so I went ",
+    "dateLabel": "2nd Jun '24, 12:15pm",
+    "tags": [
+      "Python",
+      "OOP"
+    ],
+    "status": [
+      "Completed",
+      "Small"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Is Python Object Oriented.md"
+  },
+  {
+    "slug": "kubernetes",
+    "title": "Kubernetes",
+    "description": "Kubernetes architecture consists of running clusters that allow containers to run across multiple machines and environments. Each cluster typically consists of == worker nodes ==, ",
+    "dateLabel": "6th Jun '24, 06:51am",
+    "tags": [
+      "4 - Tags/Containers",
+      "Virtualization"
+    ],
+    "status": [
+      "Completed",
+      "Small"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Kubernetes.md"
+  },
+  {
+    "slug": "login-process-of-linux",
+    "title": "Login Process of Linux",
+    "description": "1. BIOS/UEFI Initialization : The system firmware performs hardware initialization and hands control over to the bootloader.",
+    "dateLabel": "12th Jun '24, 20:03pm",
+    "tags": [
+      "Linux",
+      "OS",
+      "Systemd"
+    ],
+    "status": [
+      "Completed",
+      "ProperNotes",
+      "Small"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Login Process of Linux.md"
+  },
+  {
+    "slug": "loop-invariant",
+    "title": "Introduction",
+    "description": "There are multiple ways to explain what \"Loop Invariant\" is, here are some offered by different websites,",
+    "dateLabel": "2nd Jun '24, 07:09am",
+    "tags": [
+      "CRLS",
+      "Data Structures and Algorithms"
+    ],
+    "status": [
+      "Completed",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Loop Invariant.md"
+  },
+  {
+    "slug": "map-vs-unordered-map",
+    "title": "Map VS Unordered Map",
+    "description": "Differences between the two:",
+    "dateLabel": "24th Jun '24, 12:36pm",
+    "tags": [
+      "Compi-Coding",
+      "Data Structures and Algorithms"
+    ],
+    "status": [
+      "Small",
+      "ProperNotes",
+      "Completed"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Map VS Unordered Map.md"
+  },
+  {
+    "slug": "mcp-server",
+    "title": "MCP Server",
+    "description": "An MCP server is a bridge between AI models and external tools or data sources that the AI wants to interact with. In simple terms it acts like an API (users to tool) but for LLMs/",
+    "dateLabel": "21st May '26, 02:11pm",
+    "tags": [
+      "AI",
+      "LLMs"
+    ],
+    "status": [
+      "ProperNotes",
+      "InProgress"
+    ],
+    "file": "obsidian-files/2 - Full Notes/MCP Server.md"
+  },
+  {
+    "slug": "modular-exponentiation",
+    "title": "Modular Exponentiation",
+    "description": "Problem Statement : Given three numbers x, y and z compute $(x^y)\\%z$",
+    "dateLabel": "14th Jun '24, 19:26pm",
+    "tags": [
+      "Compi-Coding",
+      "Maths"
+    ],
+    "status": [
+      "Completed",
+      "Small"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Modular Exponentiation.md"
+  },
+  {
+    "slug": "network-transparency",
+    "title": "Network Transparency",
+    "description": "Network transparency , in its most general sense, refers to the ability of a protocol to transmit data over the network in a manner which is not observable (\u201ctransparent\u201d as in inv",
+    "dateLabel": "11th Jun '24, 17:37pm",
+    "tags": [
+      "Network"
+    ],
+    "status": [
+      "Completed",
+      "Small"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Network Transparency.md"
+  },
+  {
+    "slug": "openclaw",
+    "title": "OpenClaw",
+    "description": "A public note from my Obsidian vault.",
+    "dateLabel": "21st May '26, 01:46pm",
+    "tags": [
+      "AI"
+    ],
+    "status": [
+      "ProperNotes",
+      "InProgress"
+    ],
+    "file": "obsidian-files/2 - Full Notes/OpenClaw.md"
+  },
+  {
+    "slug": "ordered-set",
+    "title": "Ordered Set",
+    "description": "Ordered set is a policy based data structure in g++ that keeps ==unique elements in sorted order==. It ==performs== all the ==operations as a set== in $log(n)$ complexity and perfo",
+    "dateLabel": "13th Jun '24, 15:10pm",
+    "tags": [
+      "GNU C++ PBDS",
+      "Sorting"
+    ],
+    "status": [
+      "Completed",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Ordered Set.md"
+  },
+  {
+    "slug": "pacman",
+    "title": "PACMAN",
+    "description": "pacman is a ==package manager for Arch Linux== and its derivatives. Its ==designed to simplify the process of installing, removing and updating== the software packages on the syste",
+    "dateLabel": "9th Jun '24, 05:41am",
+    "tags": [
+      "Linux",
+      "Terminal"
+    ],
+    "status": [
+      "Completed",
+      "Small",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/PACMAN.md"
+  },
+  {
+    "slug": "pictureme",
+    "title": "PictureMe!",
+    "description": "Nice website to show someone how you see them physically in your mind, here.",
+    "dateLabel": "4th Jun '24, 20:09pm",
+    "tags": [
+      "Entertainment",
+      "Aesthetics"
+    ],
+    "status": [
+      "Completed",
+      "Small"
+    ],
+    "file": "obsidian-files/2 - Full Notes/PictureMe!.md"
+  },
+  {
+    "slug": "priority-queue",
+    "title": "Priority Queue",
+    "description": "A priority queue is a type of queue where each element is associated with a priority value, and elements are served based on their priority rather than their insertion order.",
+    "dateLabel": "14th May '26, 09:46pm",
+    "tags": [
+      "Compi-Coding",
+      "Data Structures and Algorithms"
+    ],
+    "status": [
+      "Completed",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Priority Queue.md"
+  },
+  {
+    "slug": "qmk",
+    "title": "QMK",
+    "description": "QMK ( Quantum Mechanical Keyboard ) is an open source community centered around developing computer input devices. The community encompasses all sorts of",
+    "dateLabel": "16th Nov '24, 16:47pm",
+    "tags": [
+      "Keyboards"
+    ],
+    "status": [
+      "Completed",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/QMK.md"
+  },
+  {
+    "slug": "regex",
+    "title": "Regex",
+    "description": "Regular expression, or regex, is a sequence of characters that describes a set of strings that match a pattern. This is very useful in programming because often we",
+    "dateLabel": "16th Nov '24, 09:14am",
+    "tags": [
+      "Programming languages"
+    ],
+    "status": [
+      "Completed",
+      "Small"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Regex.md"
+  },
+  {
+    "slug": "releasing-memory-garbage-collection-in-js",
+    "title": "Releasing Memory: Garbage Collection In JavaScript",
+    "description": "Garbage collection refers to the process of clearing memory. The JavaScript engine manages garbage collection using two key algorithms:",
+    "dateLabel": "27th Jun '24, 17:52pm",
+    "tags": [
+      "JavaScript"
+    ],
+    "status": [
+      "Completed",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Releasing Memory; Garbage Collection In Js.md"
+  },
+  {
+    "slug": "small-to-large-merging",
+    "title": "Small To Large Merging",
+    "description": "A way to merge two or more sets efficiently.",
+    "dateLabel": "15th Jun '24, 15:16pm",
+    "tags": [
+      "Compi-Coding"
+    ],
+    "status": [
+      "Completed",
+      "Small"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Small To Large Merging.md"
+  },
+  {
+    "slug": "ssh",
+    "title": "SSH",
+    "description": "The Secure Shell (SSH) protocol is a method for securely sending commands to a computer over an unsecured network. SSH uses cryptography to authenticate and encrypt connections bet",
+    "dateLabel": "3rd Sep '24, 15:56pm",
+    "tags": [
+      "Network"
+    ],
+    "status": [
+      "Completed",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/SSH.md"
+  },
+  {
+    "slug": "strongly-connected-components",
+    "title": "Strongly Connected Components",
+    "description": "A Strongly connected component is a set of nodes such that each node is reachable from every other node in that set. In other words, there exists a path from every node to every ot",
+    "dateLabel": "29th Jun '24, 08:36am",
+    "tags": [
+      "Graphs",
+      "Data Structures and Algorithms"
+    ],
+    "status": [
+      "Completed",
+      "Small"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Strongly Connected Components.md"
+  },
+  {
+    "slug": "sudo",
+    "title": "SUDO",
+    "description": "sudo stands for SUPER USER DO, this means any command with the sudo prefix gets ==elevated privileges, temporarily granting them root access==. This allows users to perform tasks t",
+    "dateLabel": "9th Jun '24, 05:29am",
+    "tags": [
+      "Linux",
+      "Terminal"
+    ],
+    "status": [
+      "Completed",
+      "Small",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/SUDO.md"
+  },
+  {
+    "slug": "super-in-python-mro",
+    "title": "`super()` in Python (MRO)",
+    "description": "In languages that use ==multiple inheritance==, the ==order in which base classes are searched== when looking for a method is often ==called the Method Resolution Order==, or MRO. ",
+    "dateLabel": "2nd Jun '24, 08:59am",
+    "tags": [
+      "Python",
+      "OOP"
+    ],
+    "status": [
+      "Completed",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/super() in Python (MRO).md"
+  },
+  {
+    "slug": "svg",
+    "title": "SVG",
+    "description": "SVGs are a scalable image format, which means they will easily scale to any size and retain their quality without increasing their filesize. They\u2019re also very useful if you need to",
+    "dateLabel": "20th Jan '25, 11:58am",
+    "tags": [
+      "Image Format",
+      "Web Dev"
+    ],
+    "status": [
+      "ProperNotes",
+      "Completed"
+    ],
+    "file": "obsidian-files/2 - Full Notes/SVG.md"
+  },
+  {
+    "slug": "sxhkd",
+    "title": "sxhkd",
+    "description": "\\ Arch Wiki",
+    "dateLabel": "14th Jul '24, 14:12pm",
+    "tags": [
+      "Linux",
+      "X.org"
+    ],
+    "status": [
+      "Completed",
+      "Small"
+    ],
+    "file": "obsidian-files/2 - Full Notes/sxhkd.md"
+  },
+  {
+    "slug": "tarjan-s-algorithm-finding-bridges-in-an-udg",
+    "title": "Finding Bridges In An UDAG",
+    "description": "Definition of a Bridge : A bridge in a graph is an edge, who's removal creates two Strongly Connected Components (its proven that the removal of an edge cannot create more two conn",
+    "dateLabel": "29th Jun '24, 08:33am",
+    "tags": [
+      "Graphs",
+      "Undirected Graph",
+      "Data Structures and Algorithms",
+      "Compi-Coding"
+    ],
+    "status": [
+      "Completed",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Tarjan's Algorithm - Finding Bridges In An UDG.md"
+  },
+  {
+    "slug": "topological-sorting",
+    "title": "Topological Sorting",
+    "description": "Topological sorting is a linear ordering of vertices in a Directed Acyclic Graph (DAG) such that for every directed edge from a vertex u to a vertex v (u \u2192 v), u appears before v i",
+    "dateLabel": "28th Apr '26, 12:44pm",
+    "tags": [
+      "Compi-Coding",
+      "Graphs",
+      "Undirected Graph"
+    ],
+    "status": [
+      "InProgress",
+      "ProperNotes"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Topological Sorting.md"
+  },
+  {
+    "slug": "virtual-machines",
+    "title": "Virtual Machines",
+    "description": "Virtual Machines are ==virtual computers==, they ==mimic== (depending on what u think) a ==machine== ==running with those resources==. It works by ==dedicating some resources== to ",
+    "dateLabel": "4th Jun '24, 08:34am",
+    "tags": [
+      "Linux",
+      "OS",
+      "Virtualization"
+    ],
+    "status": [
+      "Completed"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Virtual Machines.md"
+  },
+  {
+    "slug": "website-hosting",
+    "title": "Website Hosting",
+    "description": "First, lets talk about the static hosting and dynamic websites. In short, \"A static website serves pre built, fixed content that remains the same for every visitor. In contrast, a ",
+    "dateLabel": "15th May '26, 07:13am",
+    "tags": [
+      "Web Dev",
+      "Hosting"
+    ],
+    "status": [
+      "ProperNotes",
+      "InProgress"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Website Hosting.md"
+  },
+  {
+    "slug": "why-this-cannot-be-used-before-super-in-js",
+    "title": "Why This cannot be used before Super in JS",
+    "description": "In a Javascript class, that inherits a parent class, in the constructor method we cannot use this until super is called, it gives an error:",
+    "dateLabel": "24th Jun '24, 19:33pm",
+    "tags": [
+      "JavaScript"
+    ],
+    "status": [
+      "Completed",
+      "Small"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Why This cannot be used before Super in JS.md"
+  },
+  {
+    "slug": "windowing-system",
+    "title": "Windowing System",
+    "description": "A windowing system (or window system ) is a ==software suite that manages separately different parts of display screens==. It is a type of graphical user interface (GUI) which impl",
+    "dateLabel": "11th Jun '24, 17:14pm ^e35e70",
+    "tags": [
+      "OS",
+      "GUI"
+    ],
+    "status": [
+      "ProperNotes",
+      "Completed"
+    ],
+    "file": "obsidian-files/2 - Full Notes/Windowing System.md"
+  },
+  {
+    "slug": "wmname-issue-in-java",
+    "title": "WMNAME issue in java",
+    "description": "$ wmname window manager name",
+    "dateLabel": "16th Nov '24, 09:06am",
+    "tags": [
+      "Java"
+    ],
+    "status": [
+      "Small",
+      "Completed"
+    ],
+    "file": "obsidian-files/2 - Full Notes/WMNAME issue in java.md"
+  }
+]
