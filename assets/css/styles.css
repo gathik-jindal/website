@@ -224,8 +224,8 @@ button {
 
 .sidebar-note-list {
   display: grid;
-  max-height: calc(100vh - 270px);
-  overflow-y: auto;
+  /* max-height: calc(100vh - 270px); */
+  /* overflow-y: auto; */
 }
 
 .sidebar-note {
@@ -609,6 +609,7 @@ button {
   padding: 18px;
   border: 0;
   border-bottom: 1.5px solid var(--line);
+  border-right: 1.5px solid var(--line);
   background: var(--paper);
   cursor: pointer;
   text-align: left;
