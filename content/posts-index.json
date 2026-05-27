@@ -1,0 +1,18 @@
+[
+  {
+    "slug": "start-here",
+    "title": "Start Here",
+    "description": "A short note about how this portfolio connects to a private Obsidian vault.",
+    "date": "2026-05-27",
+    "tags": ["meta", "notes"],
+    "file": "start-here.md"
+  },
+  {
+    "slug": "selective-building",
+    "title": "Selective Building in Public",
+    "description": "A simple rule for publishing useful notes without exposing the entire messy notebook.",
+    "date": "2026-05-27",
+    "tags": ["workflow", "writing"],
+    "file": "selective-building.md"
+  }
+]

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Public notes and blog posts by Gathik Jindal.">
+    <title>Writing | Gathik Jindal</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="logo" href="index.html" aria-label="Gathik Jindal home"><span>gathik</span>jindal</a>
+      <nav class="topnav" aria-label="Main navigation">
+        <a href="index.html">Portfolio</a>
+        <a href="blog.html" aria-current="page">Writing</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="top-actions">
+        <a class="icon-button" href="https://github.com/gathik-jindal" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.19-3.37-1.19-.45-1.16-1.1-1.46-1.1-1.46-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.51 9.51 0 0 1 12 6.01c.85 0 1.7.11 2.5.34 1.9-1.29 2.74-1.02 2.74-1.02.55 1.37.2 2.39.1 2.64.64.7 1.02 1.59 1.02 2.68 0 3.83-2.34 4.67-4.56 4.92.36.31.68.92.68 1.86v2.76c0 .26.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+        </a>
+        <a class="upgrade" href="mailto:hello@example.com">Hire me</a>
+      </div>
+    </header>
+
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="side-link" href="index.html"><span class="side-icon">▣</span>Dashboard</a>
+        <a class="side-link is-active" href="blog.html"><span class="side-icon">✎</span>Writing</a>
+        <a class="side-link" href="docs/obsidian-workflow.md"><span class="side-icon">◇</span>Obsidian workflow</a>
+        <div class="side-card">
+          <h2>Publish safely</h2>
+          <p>Copy only cleaned public notes from your private vault into this repo.</p>
+        </div>
+      </aside>
+
+      <main class="dashboard">
+        <section class="panel header-panel">
+          <p class="panel-label">Writing dashboard</p>
+          <h1>Public notes from a private thinking system.</h1>
+        </section>
+
+        <section class="blog-board">
+          <aside class="panel filter-panel">
+            <p class="panel-label">Filter</p>
+            <div class="tag-list" id="tagList">
+              <button class="tag is-active" type="button" data-tag="all">All</button>
+            </div>
+          </aside>
+          <div class="post-area">
+            <div class="post-grid" id="postGrid" aria-live="polite"></div>
+            <article class="panel reader" id="reader" hidden>
+              <button class="outline-button reader-close" id="readerClose" type="button">Close</button>
+              <div id="readerContent"></div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/blog.js"></script>
+  </body>
+</html>
