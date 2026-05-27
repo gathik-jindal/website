@@ -1,0 +1,1 @@
+Everything about a computer booting up.

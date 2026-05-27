@@ -5,3 +5,5 @@
 - [] make side bar consistent in all pages.
 - [] Add projects.
 - [] Add writing.
+- [] add alternate email.
+- [] remove file extensions from links.

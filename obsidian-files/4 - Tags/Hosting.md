@@ -1,0 +1,1 @@
+This tag refers to any kind of hosting or server. This include website hosting, AI running server, minecraft server etc.
