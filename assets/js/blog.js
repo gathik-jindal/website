@@ -21,8 +21,8 @@ async function loadPosts() {
 function renderTags() {
   const tags = [...new Set(posts.flatMap((post) => post.tags))].sort();
   tagList.innerHTML = [
-    '<button class="tag is-active" type="button" data-tag="all">All</button>',
-    ...tags.map((tag) => `<button class="tag" type="button" data-tag="${escapeHtml(tag)}">${escapeHtml(tag)}</button>`),
+    '<button class="tag hover-pop is-active" type="button" data-tag="all">All</button>',
+    ...tags.map((tag) => `<button class="tag hover-pop" type="button" data-tag="${escapeHtml(tag)}">${escapeHtml(tag)}</button>`),
   ].join("");
 }
 
@@ -30,7 +30,7 @@ function renderPosts() {
   const visible = activeTag === "all" ? posts : posts.filter((post) => post.tags.includes(activeTag));
   postGrid.innerHTML = visible
     .map((post) => `
-      <button class="post-card" type="button" data-slug="${escapeHtml(post.slug)}">
+      <button class="post-card hover-pop" type="button" data-slug="${escapeHtml(post.slug)}">
         <span>
           <h2>${escapeHtml(post.title)}</h2>
           <p>${escapeHtml(post.description)}</p>
