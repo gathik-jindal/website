@@ -30,7 +30,7 @@ function renderTags() {
   const tags = [...new Set(posts.flatMap((post) => post.tags))].sort();
   tagList.innerHTML = [
     '<button class="tag is-active" type="button" data-tag="all">All</button>',
-    ...tags.map((tag) => `<button class="tag hover-pop" type="button" data-tag="${escapeHtml(tag)}">${escapeHtml(tag)}</button>`),
+    ...tags.map((tag) => `<button class="tag" type="button" data-tag="${escapeHtml(tag)}">${escapeHtml(tag)}</button>`),
   ].join("");
   tagList.classList.toggle("is-collapsed", !tagsExpanded);
 }
