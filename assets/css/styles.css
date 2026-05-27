@@ -85,6 +85,18 @@ button {
   transition: transform 140ms ease;
 }
 
+.upgrade {
+  min-height: 36px;
+  align-self: center;
+  margin: 0 12px;
+  padding: 0 18px;
+  border: 1.5px solid var(--line);
+  border-radius: 4px;
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 700;
+}
+
 .topnav a[aria-current="page"] {
   background: var(--paper-deep);
 }
@@ -162,18 +174,6 @@ button {
   width: 22px;
   height: 22px;
   fill: currentColor;
-}
-
-.upgrade {
-  min-height: 36px;
-  align-self: center;
-  margin: 0 12px;
-  padding: 0 18px;
-  border: 1.5px solid var(--line);
-  border-radius: 4px;
-  background: var(--ink);
-  color: var(--paper);
-  font-weight: 700;
 }
 
 .app-shell {
