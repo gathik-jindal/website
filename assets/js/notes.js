@@ -257,7 +257,7 @@ noteSearch.addEventListener("input", () => {
   reader.hidden = true;
   postGrid.hidden = false;
   renderPosts();
-  renderSidebarNotes();
+  // renderSidebarNotes();
 });
 
 tagToggle.addEventListener("click", () => {
