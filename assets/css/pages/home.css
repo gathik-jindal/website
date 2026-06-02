@@ -47,40 +47,9 @@
     line-height: 1.05;
 }
 
-.bubble-art {
+.coach-image {
     position: relative;
     height: 78px;
-}
-
-.bubble-art span {
-    position: absolute;
-    border: 1.5px solid var(--line);
-    background: var(--paper);
-}
-
-.bubble-art span:nth-child(1) {
-    left: 24%;
-    top: 24px;
-    width: 54px;
-    height: 26px;
-    border-radius: 50%;
-}
-
-.bubble-art span:nth-child(2) {
-    right: 22%;
-    top: 14px;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    background: var(--blue);
-}
-
-.bubble-art span:nth-child(3) {
-    left: 43%;
-    bottom: 2px;
-    width: 44px;
-    height: 24px;
-    border-radius: 50%;
 }
 
 .panel-cta {
