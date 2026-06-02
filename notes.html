@@ -3,18 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Public notes and blog posts by Gathik Jindal.">
-    <title>Writing | Gathik Jindal</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <meta name="description" content="Public notes and notes posts by Gathik Jindal.">
+    <title>Notes | Gathik Jindal</title>
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/pages/notes.css">
   </head>
-  <body>
+  <body class="page page-notes page-with-sidebar">
     <header class="topbar">
       <div class="topbar-inner">
         <a class="logo" href="index.html" aria-label="Gathik Jindal home"><span>gathik</span>jindal</a>
         <nav class="topnav" aria-label="Main navigation">
           <a class="hover-pop" href="index.html">Portfolio</a>
           <a class="hover-pop" href="index.html#projects">Projects</a>
-          <a class="hover-pop" href="blog.html" aria-current="page">Writing</a>
+          <a class="hover-pop" href="notes.html" aria-current="page">Notes</a>
           <a class="hover-pop" href="index.html#contact">Contact</a>
         </nav>
         <div class="top-actions">
@@ -33,7 +34,7 @@
         <a class="side-link hover-pop" href="index.html#projects"><span class="side-icon">~/</span>Projects
           <!-- <small>New</small> -->
         </a>
-        <a class="side-link hover-pop is-active" href="blog.html"><span class="side-icon">::</span>Writing</a>
+        <a class="side-link hover-pop is-active" href="notes.html"><span class="side-icon">::</span>Notes</a>
         <a class="side-link hover-pop" href="index.html#contact"><span class="side-icon">()</span>Contact</a>
         <div class="side-card hover-pop">
           <h2>Open to work</h2>
@@ -52,7 +53,7 @@
           <h1>Concrete notes from my Obsidian vault.</h1>
         </section>
 
-        <section class="blog-board">
+        <section class="notes-board">
           <div class="panel filter-panel">
             <label class="panel-label" for="noteSearch">Search notes</label>
             <input class="note-search" id="noteSearch" type="search" placeholder="Search by title, tag, or summary">
@@ -76,6 +77,6 @@
     </div>
 
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/blog.js"></script>
+    <script src="assets/js/notes.js"></script>
   </body>
 </html>

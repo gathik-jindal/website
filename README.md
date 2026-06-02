@@ -1,11 +1,11 @@
 # Gathik Jindal Portfolio
 
-A dependency-free portfolio and Obsidian-powered notes site. The design is inspired by compact dashboard interfaces: warm paper background, sharp grid borders, a persistent header, a sidebar, and dense panels.
+A dependency-free portfolio and Obsidian-powered notes site. The design is inspired by compact dashboard interfaces: warm paper background, sharp grid borders, a persistent header, an optional sidebar, and dense panels.
 
 ## What This Repo Does
 
 - Shows a portfolio homepage in `index.html`.
-- Shows an Obsidian notes browser in `blog.html`.
+- Shows an Obsidian notes browser in `notes.html`.
 - Reads concrete notes from `obsidian-files/2 - Full Notes`.
 - Ignores source material and tag-only files for rendering.
 - Loads note assets from `obsidian-files/6 - Assets`.
@@ -14,10 +14,13 @@ A dependency-free portfolio and Obsidian-powered notes site. The design is inspi
 ## Project Structure
 
 - `index.html` - portfolio dashboard homepage
-- `blog.html` - Obsidian notes browser
-- `assets/css/styles.css` - responsive dashboard styling
+- `notes.html` - Obsidian notes browser
+- `assets/css/base.css` - shared layout, tokens, and chrome
+- `assets/css/pages/home.css` - portfolio homepage styles
+- `assets/css/pages/notes.css` - notes browser styles
+- `assets/css/styles.css` - compatibility entry point that imports the split stylesheets
 - `assets/js/main.js` - smooth in-page navigation
-- `assets/js/blog.js` - notes search, tag filtering, sidebar list, and markdown rendering
+- `assets/js/notes.js` - notes search, tag filtering, sidebar list, and markdown rendering
 - `scripts/build_obsidian_index.py` - scans Obsidian notes and creates the notes index
 - `scripts/copy_obsidian.py` - optional helper for copying a vault/folder into this repo
 - `obsidian-files/2 - Full Notes` - top-level concrete notes shown on the site

@@ -3,7 +3,7 @@ title: Selective Building in Public
 date: 2026-05-27
 tags:
   - workflow
-  - writing
+  - Notes
 ---
 
 # Selective Building in Public

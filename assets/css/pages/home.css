@@ -1,0 +1,239 @@
+.hero-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(220px, 0.72fr);
+    border-bottom: 0;
+}
+
+.hero-copy {
+    padding: 24px 18px;
+    border-right: 1.5px solid var(--line);
+}
+
+.hero-copy h2 {
+    max-width: 650px;
+    margin: 0 0 12px;
+    font-size: clamp(26px, 4.6vw, 44px);
+    line-height: 1.02;
+}
+
+.hero-copy p,
+.coach-card p,
+.course-card p,
+.plan-card p {
+    color: var(--muted);
+    line-height: 1.45;
+}
+
+.trend-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 18px;
+    margin-top: 18px;
+    font-size: 13px;
+}
+
+.coach-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 18px;
+    background: var(--paper);
+    text-align: center;
+}
+
+.coach-card h3 {
+    margin: 14px 0 8px;
+    font-size: 22px;
+    line-height: 1.05;
+}
+
+.bubble-art {
+    position: relative;
+    height: 78px;
+}
+
+.bubble-art span {
+    position: absolute;
+    border: 1.5px solid var(--line);
+    background: var(--paper);
+}
+
+.bubble-art span:nth-child(1) {
+    left: 24%;
+    top: 24px;
+    width: 54px;
+    height: 26px;
+    border-radius: 50%;
+}
+
+.bubble-art span:nth-child(2) {
+    right: 22%;
+    top: 14px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--blue);
+}
+
+.bubble-art span:nth-child(3) {
+    left: 43%;
+    bottom: 2px;
+    width: 44px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+.panel-cta {
+    display: grid;
+    min-height: 38px;
+    place-items: center;
+    border-top: 1.5px solid var(--line);
+    border-right: 1.5px solid var(--line);
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.panel-cta-alt {
+    border-right: 0;
+}
+
+.progress-panel {
+    padding: 16px 0 0;
+    border-top: 1.5px solid var(--line);
+}
+
+.progress-track {
+    height: 20px;
+    border-top: 1.5px solid var(--line);
+    background: var(--paper-deep);
+}
+
+.progress-track span {
+    display: block;
+    height: 100%;
+    border-right: 1.5px solid var(--line);
+    background: repeating-linear-gradient(45deg, var(--ink), var(--ink) 4px, transparent 4px, transparent 8px);
+}
+
+.split-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.72fr);
+}
+
+.course-card,
+.plan-card {
+    min-height: 220px;
+    padding: 22px 18px;
+    border-right: 1.5px solid var(--line);
+    background: var(--paper);
+}
+
+.plan-card {
+    border-right: 0;
+}
+
+.course-card h2,
+.plan-card h2,
+.bottom-bar h2 {
+    margin: 0;
+    font-size: 26px;
+    line-height: 1.05;
+}
+
+.course-card a {
+    display: inline-block;
+    margin-top: 12px;
+    border-bottom: 1.5px solid var(--line);
+    font-weight: 700;
+}
+
+.bottom-bar {
+    display: grid;
+    border-top: 1.5px solid var(--line);
+    background: var(--paper);
+}
+
+.bottom-bar-inner {
+    display: grid;
+    grid-template-columns: 464px 1fr;
+    width: min(100% - 48px, 1450px);
+    min-height: 50px;
+    margin: 0 auto;
+    border-right: 1.5px solid var(--line);
+    border-left: 1.5px solid var(--line);
+    background: var(--paper);
+}
+
+.bottom-bar-intro {
+    padding: 22px 18px;
+    border-right: 1.5px solid var(--line);
+}
+
+.bottom-bar-intro h2 {
+    margin: 0;
+    font-size: 26px;
+    line-height: 1.05;
+}
+
+.bottom-bar-intro p:not(.panel-label) {
+    margin: 12px 0 0;
+    color: var(--muted);
+    line-height: 1.45;
+}
+
+.bottom-bar-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.bottom-bar-card {
+    display: grid;
+    gap: 8px;
+    min-height: 86px;
+    padding: 18px;
+    border-bottom: 1.5px solid var(--line);
+    background: var(--paper);
+}
+
+.bottom-bar-card:last-child {
+    border-bottom: 0;
+}
+
+.bottom-bar-card span {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.bottom-bar-card strong {
+    overflow-wrap: anywhere;
+    font-size: clamp(18px, 3vw, 28px);
+    line-height: 1.05;
+}
+
+@media (max-width: 840px) {
+
+    .hero-panel,
+    .split-grid,
+    .bottom-bar {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-copy,
+    .bottom-bar-intro,
+    .course-card,
+    .plan-card {
+        border-right: 0;
+        border-bottom: 1.5px solid var(--line);
+    }
+
+    .panel-cta {
+        border-right: 0;
+    }
+
+    .trend-grid {
+        grid-template-columns: 1fr;
+    }
+}

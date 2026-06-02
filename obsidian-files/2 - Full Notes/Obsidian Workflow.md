@@ -86,6 +86,6 @@ Before pushing public changes:
 1. Review notes in `obsidian-files/2 - Full Notes`.
 2. Remove private context or rough scratch notes.
 3. Rebuild the notes index.
-4. Open `blog.html` locally and click through a few notes.
+4. Open `notes.html` locally and click through a few notes.
 
 This keeps the site useful while still letting Obsidian stay your working notebook.

@@ -2,9 +2,11 @@
 
 - [x] Alter text to fit me.
 - [x] Add link to repo in `coach-card` (in `index.html`)
-- [] make side bar consistent in all pages.
+- [x] make side bar consistent (or remove) in pages.
+- [x] make the contact me section the footer of the page.
 - [] Add projects.
-- [] Add writing.
+- [] Add Notes.
 - [] add alternate email.
 - [] remove file extensions from links.
 - [] make the links in the notes actually work.
+- [] replace "use my portfolio" with a better logo/icon
