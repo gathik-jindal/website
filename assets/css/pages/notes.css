@@ -7,6 +7,54 @@
     padding: 18px;
 }
 
+.sidebar-notes {
+    margin-top: 28px;
+    border-top: 1.5px solid var(--line);
+}
+
+.sidebar-notes .panel-label {
+    padding: 14px 14px 0;
+}
+
+.sidebar-note-list {
+    display: grid;
+}
+
+.sidebar-note {
+    display: grid;
+    gap: 4px;
+    width: 100%;
+    padding: 10px 14px;
+    border: 0;
+    border-bottom: 1.5px solid var(--line);
+    background: var(--paper);
+    cursor: pointer;
+    text-align: left;
+}
+
+.sidebar-note span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.sidebar-note small,
+.sidebar-empty {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.sidebar-empty {
+    margin: 0;
+    padding: 10px 14px;
+}
+
+.sidebar-note.is-selected {
+    background: var(--paper-deep);
+}
+
 .note-search {
     width: 100%;
     min-height: 42px;

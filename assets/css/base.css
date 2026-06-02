@@ -165,6 +165,9 @@ button {
     width: min(100% - 48px, 1450px);
 }
 
+/* Sidebar contents are not used right now but can be used
+in the future */
+
 .sidebar {
     border-right: 1.5px solid var(--line);
     background: rgba(255, 242, 228, 0.84);
@@ -220,54 +223,6 @@ button {
     color: var(--muted);
     font-size: 12px;
     line-height: 1.35;
-}
-
-.sidebar-notes {
-    margin-top: 28px;
-    border-top: 1.5px solid var(--line);
-}
-
-.sidebar-notes .panel-label {
-    padding: 14px 14px 0;
-}
-
-.sidebar-note-list {
-    display: grid;
-}
-
-.sidebar-note {
-    display: grid;
-    gap: 4px;
-    width: 100%;
-    padding: 10px 14px;
-    border: 0;
-    border-bottom: 1.5px solid var(--line);
-    background: var(--paper);
-    cursor: pointer;
-    text-align: left;
-}
-
-.sidebar-note span {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: 12px;
-    font-weight: 700;
-}
-
-.sidebar-note small,
-.sidebar-empty {
-    color: var(--muted);
-    font-size: 11px;
-}
-
-.sidebar-empty {
-    margin: 0;
-    padding: 10px 14px;
-}
-
-.sidebar-note.is-selected {
-    background: var(--paper-deep);
 }
 
 .dashboard {
