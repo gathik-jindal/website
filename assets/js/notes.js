@@ -13,6 +13,11 @@ let activeTag = "all";
 let searchTerm = "";
 let tagsExpanded = false;
 
+function setPostGridVisible(isVisible) {
+  postGrid.hidden = !isVisible;
+  postGrid.style.display = isVisible ? "grid" : "none";
+}
+
 async function loadPosts() {
   try {
     const response = await fetch("content/obsidian-notes-index.json");
@@ -80,7 +85,7 @@ async function openPost(slug, updateHash = true) {
   const markdown = await response.text();
   readerContent.innerHTML = renderNoteHeader(post) + markdownToHtml(stripNoteMetadata(markdown));
   reader.hidden = false;
-  postGrid.hidden = true;
+  setPostGridVisible(false);
   highlightActiveNote(slug);
   if (updateHash && window.location.hash !== `#${slug}`) {
     history.replaceState(null, "", `#${slug}`);
@@ -237,7 +242,7 @@ tagList.addEventListener("click", (event) => {
   activeTag = button.dataset.tag;
   tagList.querySelectorAll(".tag").forEach((tag) => tag.classList.toggle("is-active", tag === button));
   reader.hidden = true;
-  postGrid.hidden = false;
+  setPostGridVisible(true);
   renderPosts();
   renderSidebarNotes();
 });
@@ -255,7 +260,7 @@ sidebarNoteList.addEventListener("click", (event) => {
 noteSearch.addEventListener("input", () => {
   searchTerm = noteSearch.value.trim().toLowerCase();
   reader.hidden = true;
-  postGrid.hidden = false;
+  setPostGridVisible(true);
   renderPosts();
   // renderSidebarNotes();
 });
@@ -268,7 +273,7 @@ tagToggle.addEventListener("click", () => {
 
 readerClose.addEventListener("click", () => {
   reader.hidden = true;
-  postGrid.hidden = false;
+  setPostGridVisible(true);
   highlightActiveNote("");
   history.replaceState(null, "", window.location.pathname);
 });
