@@ -3,10 +3,6 @@
     display: grid;
 }
 
-.notes-board {
-    grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr);
-}
-
 .filter-panel {
     padding: 18px;
 }
