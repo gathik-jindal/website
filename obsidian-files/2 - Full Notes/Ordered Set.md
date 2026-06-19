@@ -2,7 +2,7 @@
 
 Status: #Completed #ProperNotes 
 
-Tags: [[GNU C++ PBDS]] [[Sorting]]
+Tags: [[GNU C++ PBDS]] [[Sorting]] [[Compi-Coding]]
 
 # Ordered Set
 

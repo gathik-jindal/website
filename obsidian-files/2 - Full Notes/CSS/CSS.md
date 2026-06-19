@@ -5,25 +5,20 @@ Status: #Completed #ProperNotes
 Tags: [[GUI]] [[Web Dev]] [[Programming languages]]
 
 ## CSS Anatomy
-
-The diagram below shows two different methods, or *syntaxes*, for Notes CSS code. The first syntax shows CSS applied as a *ruleset*, while the second shows it written as an *inline style*. Two different methods of Notes CSS may seem a bit intimidating at first, but it’s not as bad as it looks!
+The diagram below shows two different methods, or _syntaxes_, for writing CSS code. The first syntax shows CSS applied as a _ruleset_, while the second shows it written as an _inline style_. Two different methods of writing CSS may seem a bit intimidating at first, but it’s not as bad as it looks!
 ![[CSS_Anatomy.svg|700]]
-Both methods contain common features in their [anatomy](https://www.codecademy.com/resources/docs/css/anatomy?page_req=catalog). Notice how both syntaxes contain a *declaration*. Declarations are the core of CSS. They apply a style to the selected element. Here, the [`<p>`](https://www.codecademy.com/resources/docs/html/paragraphs?page_req=catalog) element has been selected in both syntaxes and will be styled to display the text in blue.
+Both methods contain common features in their [anatomy](https://www.codecademy.com/resources/docs/css/anatomy?page_req=catalog). Notice how both syntaxes contain a _declaration_. Declarations are the core of CSS. They apply a style to the selected element. Here, the [`<p>`](https://www.codecademy.com/resources/docs/html/paragraphs?page_req=catalog) element has been selected in both syntaxes and will be styled to display the text in blue.
 
 There is another way to style in HTML called, internal style sheet, it works by using the `<style></style>` tags.
 
 The best way to style in HTML is via an external `.css` file. This file will hold all the styles that are to be used. It is linked in the head of the HTML file, `<link>`, It is a self-closing tag and requires the following attributes:
-
 1. `href` — like the anchor element, the value of this attribute must be the address, or path, to the CSS file.
 2. `rel` — this attribute describes the relationship between the HTML file and the CSS file. Because you are linking to a stylesheet, the value should be set to `stylesheet`.
 
 When linking an HTML file and a CSS file together, the `<link>` element will look like the following:
 
 ```html
-<link
-  href="https://www.codecademy.com/stylesheets/style.css"
-  rel="stylesheet"
-/>
+<link href='https://www.codecademy.com/stylesheets/style.css' rel='stylesheet'>
 ```
 
 ## CSS Units
@@ -40,7 +35,7 @@ Relative units are units that can change based on their context. There are sever
 
 `em` and `rem` both refer to a font size, though they are often used to define other sizes in CSS. You’ll see both of them often so we’re going to explain both, but as a rule-of-thumb, prefer `rem`.
 
-Using a relative size like `rem` to define font sizes across your website *is* recommended. Many browsers allow users to change the base font-size to increase readability. If at all possible, it is advisable to respect a user’s wishes regarding font size. You’ll learn more about this from the reading assignments.
+Using a relative size like `rem` to define font sizes across your website _is_ recommended. Many browsers allow users to change the base font-size to increase readability. If at all possible, it is advisable to respect a user’s wishes regarding font size. You’ll learn more about this from the reading assignments.
 
 #### Viewport units
 
@@ -54,32 +49,30 @@ Custom properties are defined just like normal properties but by convention they
 
 To use these variables we just write `var(--variable-name)` in place of the value we want.
 
+
+
 ## Selectors
-
 ### Type
+Remember that _declarations_ are a fundamental part of CSS because they apply a style to a selected element. But how do you decide which elements will get the style? With a _selector_.
 
-Remember that *declarations* are a fundamental part of CSS because they apply a style to a selected element. But how do you decide which elements will get the style? With a *selector*.
-
-A selector is used to target the specific HTML element(s) to be styled by the declaration. One selector you may already be familiar with is the *type* selector. Just like its name suggests, the type selector matches the *type* of the element in the HTML document.
+A selector is used to target the specific HTML element(s) to be styled by the declaration. One selector you may already be familiar with is the _type_ selector. Just like its name suggests, the type selector matches the _type_ of the element in the HTML document.
 
 In the previous lesson, you changed the color of a paragraph element.
 
 ```css
 p {
-  color: green;
+	color: green;
 }
 ```
 
 This is an instance of using the type selector! The element type is `p`, which comes from the HTML `<p>` element.
 
 Some important notes on the type selector:
-
 - The type selector does not include the angle brackets.
-- Since element types are often referred to by their opening tag name, the type selector is sometimes referred to as the *tag name* or *element* selector.
+- Since element types are often referred to by their opening tag name, the type selector is sometimes referred to as the _tag name_ or _element_ selector.
 
 ### Universal
-
-You learned how the *type selector* selects all elements of a given type. Well, the *universal selector* selects all elements of *any* type.
+You learned how the _type selector_ selects all elements of a given type. Well, the _universal selector_ selects all elements of _any_ type.
 
 Targeting all of the elements on the page has a few specific use cases, such as resetting default browser styling or selecting all children of a parent element. Don’t worry if you don’t understand the use cases right now; we will get to them later on in our Learn CSS journey.
 
@@ -87,33 +80,30 @@ The universal selector uses the `*` character in the same place where you spec
 
 ```css
 * {
-  font-family: Verdana;
+	font-family: Verdana;
 }
 ```
 
 In the code above, every text element on the page will have its font changed to `Verdana`.
 
 ### Class
-
-CSS is not limited to selecting elements by their type. As you know, HTML elements can also have attributes. When working with HTML and CSS a *class* attribute is one of the most common ways to select an element.
+CSS is not limited to selecting elements by their type. As you know, HTML elements can also have attributes. When working with HTML and CSS a _class_ attribute is one of the most common ways to select an element.
 
 For example, consider the following HTML:
 
 ```html
-<p class="brand">Sole Shoe Company</p>
+<p class='brand'>Sole Shoe Company</p>
 ```
 
 The paragraph element in the example above has a `class` attribute within the opening tag of the`<p>` element. The `class` attribute is set to `'brand'`. To select this element using CSS, we can create a ruleset with a class selector of `.brand`.
 
 ```css
-.brand {
-}
+.brand {}
 ```
 
 To select an HTML element by its class using CSS, a period (`.`) must be prepended to the class’s name. In the example above, the class is `brand`, so the CSS selector for it is `.brand`.
 
 ### Multiple Classes
-
 We can use CSS to select an HTML element’s `class` attribute by name. And so far, we’ve selected elements using only one class name per element. If every HTML element had a single class, all the style information for each element would require a new class.
 
 Luckily, it’s possible to add more than one class name to an HTML element’s `class` attribute.
@@ -122,28 +112,27 @@ For instance, perhaps there’s a heading element that needs to be green and bol
 
 ```css
 .green {
-  color: green;
+	color: green;
 }
 
 .bold {
-  font-weight: bold;
+	font-weight: bold;
 }
 ```
 
 Then, you could include both of these classes on one HTML element like this:
 
 ```html
-<h1 class="green bold">...</h1>
+<h1 class='green bold'> ... </h1>
 ```
 
-We can add multiple classes to an HTML element’s `class` attribute by separating them with a space. This enables us to mix and match CSS classes to create many unique styles without Notes a custom class for every style combination needed.
+We can add multiple classes to an HTML element’s `class` attribute by separating them with a space. This enables us to mix and match CSS classes to create many unique styles without writing a custom class for every style combination needed.
 
 ### ID
-
 Oftentimes it’s important to select a single element with CSS to give it its own unique style. If an HTML element needs to be styled uniquely, we can give it an ID using the `id` attribute.
 
 ```html
-<h1 id="large-title">...</h1>
+<h1 id='large-title'> ... </h1>
 ```
 
 In contrast to `class` which accepts multiple values, and can be used broadly throughout an HTML document, an element’s `id` can only have a single value, and only be used once per page.
@@ -151,23 +140,21 @@ In contrast to `class` which accepts multiple values, and can be used broadly 
 To select an element’s ID with CSS, we prepend the `id` name with a number sign (`#`). For instance, if we wanted to select the HTML element in the example above, it would look like this:
 
 ```css
-#large-title {
-}
+#large-title {}
 ```
 
 The `id` name is `large-title`, therefore the CSS selector for it is `#large-title`.
 
 ### Attribute
-
 You may remember that some HTML elements use attributes to add extra detail or functionality to the element. Some familiar attributes may be `href` and `src`, but there are [many more](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes)—including `class` and `id`!
 
-The *attribute selector* can be used to target HTML elements that already contain attributes. Elements of the same type can be targeted differently by their attribute or attribute value. This alleviates the need to add new code, like the `class` or `id` attributes.
+The _attribute selector_ can be used to target HTML elements that already contain attributes. Elements of the same type can be targeted differently by their attribute or attribute value. This alleviates the need to add new code, like the `class` or `id` attributes.
 
 Attributes can be selected similarly to types, classes, and IDs.
 
 ```css
 [href] {
-  color: magenta;
+	color: magenta;
 }
 ```
 
@@ -176,24 +163,22 @@ The most basic syntax is an attribute surrounded by square brackets. In the abov
 And it can get [more granular](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors#syntax) from there by adding type and/or attribute values. One way is by using `type[attribute*=value]`. In short, this code selects an element where the attribute contains any instance of the specified value. Let’s take a look at an example.
 
 ```html
-<img src="/images/seasons/cold/winter.jpg" /><img
-  src="/images/seasons/warm/summer.jpg"
-/>
+<img src='/images/seasons/cold/winter.jpg'><img src='/images/seasons/warm/summer.jpg'>
 ```
 
 The HTML code above renders two `<img>` elements, each containing a `src` attribute with a value equaling a link to an image file.
 
 ```css
-img[src*="winter"] {
-  height: 50px;
+img[src*='winter'] {
+	height: 50px;
 }
 
-img[src*="summer"] {
-  height: 100px;
+img[src*='summer'] {
+	height: 100px;
 }
 ```
 
-Now take a look at the above CSS code. The *attribute selector* is used to target each image individually.
+Now take a look at the above CSS code. The _attribute selector_ is used to target each image individually.
 
 - The first ruleset looks for an `img` element with an attribute of `src` that contains the string `'winter'`, and sets the `height` to `50px`.
 - The second ruleset looks for an `img` element with an attribute of `src` that contains the string `'summer'`, and sets the `height` to `100px`.
@@ -201,12 +186,11 @@ Now take a look at the above CSS code. The *attribute selector* is used to tar
 Notice how no new HTML markup (like a class or id) needed to be added, and we were still able to modify the styles of each image independently. This is one advantage to using the attribute selector!
 
 ### Pseudo-class
-
 You may have observed how the appearance of certain elements can change, or be in a different state, after certain user interactions. For instance:
 
-- When you click on an `<input>` element, and a blue border is added showing that it is in *focus*.
-- When you click on a blue `<a>` link to *visit* to another page, but when you return the link’s text is purple.
-- When you’re filling out a form and the submit button is grayed out and *disabled*. But when all of the fields have been filled out, the button has color showing that it’s *active*.
+- When you click on an `<input>` element, and a blue border is added showing that it is in _focus_.
+- When you click on a blue `<a>` link to _visit_ to another page, but when you return the link’s text is purple.
+- When you’re filling out a form and the submit button is grayed out and _disabled_. But when all of the fields have been filled out, the button has color showing that it’s _active_.
 
 These are all examples of pseudo-class selectors in action! In fact, `:focus`, `:visited`, `:disabled`, and `:active` are all pseudo-classes. Factors such as user interaction, site navigation, and position in the document tree can all give elements a different state with pseudo-class.
 
@@ -214,7 +198,7 @@ A pseudo-class can be attached to any selector. It is always written as a colon�
 
 ```css
 p:hover {
-  background-color: lime;
+	background-color: lime;
 }
 ```
 
@@ -224,7 +208,7 @@ In the above code, whenever the mouse hovers over a paragraph element, that para
 
 CSS can select HTML elements by their type, class, and ID. CSS classes and IDs have different purposes, which can affect which one you use to style HTML elements.
 
-CSS classes are meant to be reused over many elements. By Notes CSS classes, you can style elements in a variety of ways by mixing classes. For instance, imagine a page with two headlines. One headline needs to be bold and blue, and the other needs to be bold and green. Instead of Notes separate CSS rules for each headline that repeat each other’s code, it’s better to write a `.bold` CSS rule, a `.green` CSS rule, and a `.blue` CSS rule. Then you can give one headline the `bold green` classes, and the other the `bold blue` classes.
+CSS classes are meant to be reused over many elements. By writing CSS classes, you can style elements in a variety of ways by mixing classes. For instance, imagine a page with two headlines. One headline needs to be bold and blue, and the other needs to be bold and green. Instead of writing separate CSS rules for each headline that repeat each other’s code, it’s better to write a `.bold` CSS rule, a `.green` CSS rule, and a `.blue` CSS rule. Then you can give one headline the `bold green` classes, and the other the `bold blue` classes.
 
 While classes are meant to be used many times, an ID is meant to style only one element. As you’ll learn in the next exercise, IDs override the styles of types and classes. Since IDs override these styles, they should be used sparingly and only on elements that need to always appear the same.
 
@@ -235,16 +219,16 @@ Specificity is the order by which the browser decides which CSS styles will be d
 IDs are the most specific selector in CSS, followed by classes, and finally, type. For example, consider the following HTML and CSS:
 
 ```html
-<h1 class="headline">Breaking News</h1>
+<h1 class='headline'>Breaking News</h1>
 ```
 
 ```css
 h1 {
-  color: red;
+	color: red;
 }
 
 .headline {
-  color: firebrick;
+	color: firebrick;
 }
 ```
 
@@ -256,12 +240,13 @@ To make styles easy to edit, it’s best to style with a type selector, if possi
 
 ### Chaining
 
-When Notes CSS rules, it’s possible to require an HTML element to have two or more CSS selectors at the same time.
+When writing CSS rules, it’s possible to require an HTML element to have two or more CSS selectors at the same time.
 
 This is done by combining multiple selectors, which we will refer to as chaining. For instance, if there was a `special` class for `<h1>` elements, the CSS would look like below:
 
 ```css
 h1.special {
+
 }
 ```
 
@@ -269,23 +254,17 @@ The code above would select only the `<h1>` elements with a class of `special
 
 ### Descendant Combinator
 
-In addition to chaining selectors to select elements, CSS also supports selecting elements that are nested within other HTML elements, also known as *descendants*. For instance, consider the following HTML:
+In addition to chaining selectors to select elements, CSS also supports selecting elements that are nested within other HTML elements, also known as _descendants_. For instance, consider the following HTML:
 
 ```html
-<ul class="main-list">
-    
-  <li>...</li>
-    
-  <li>...</li>
-    
-  <li>...</li>
-</ul>
+<ul class='main-list'>  <li> ... </li>  <li> ... </li>  <li> ... </li></ul>
 ```
 
-The nested `<li>` elements are descendants of the `<ul>` element and can be selected with the *descendant combinator* like so:
+The nested `<li>` elements are descendants of the `<ul>` element and can be selected with the _descendant combinator_ like so:
 
 ```css
 .main-list li {
+
 }
 ```
 
@@ -293,17 +272,17 @@ In the example above, `.main-list` selects the element with the`.main-list` c
 
 ### Chaining and Specificity
 
-In the last exercise, instead of selecting all `<h5>` elements, you selected only the `<h5>` elements nested inside the `.description` elements. This CSS selector was more specific than Notes only `h5`. Adding more than one tag, class, or ID to a CSS selector increases the specificity of the CSS selector.
+In the last exercise, instead of selecting all `<h5>` elements, you selected only the `<h5>` elements nested inside the `.description` elements. This CSS selector was more specific than writing only `h5`. Adding more than one tag, class, or ID to a CSS selector increases the specificity of the CSS selector.
 
 For instance, consider the following CSS:
 
 ```css
 p {
-  color: blue;
+	color: blue;
 }
 
 .main p {
-  color: red;
+	color: red;
 }
 ```
 
@@ -311,42 +290,40 @@ Both of these CSS rules define what a `<p>` element should look like. Since `
 
 ### Multiple Selectors
 
-In order to make CSS more concise, it’s possible to add CSS styles to multiple CSS selectors all at once. This prevents Notes repetitive code.
+In order to make CSS more concise, it’s possible to add CSS styles to multiple CSS selectors all at once. This prevents writing repetitive code.
 
 For instance, the following code has repetitive style attributes:
 
 ```css
 h1 {
-  font-family: Georgia;
+	font-family: Georgia;
 }
 
 .menu {
-  font-family: Georgia;
+	font-family: Georgia;
 }
 ```
 
-Instead of Notes `font-family: Georgia` twice for two selectors, we can separate the selectors by a comma to apply the same style to both, like this:
+Instead of writing `font-family: Georgia` twice for two selectors, we can separate the selectors by a comma to apply the same style to both, like this:
 
 ```css
-h1,
-.menu {
-  font-family: Georgia;
+h1, .menu {
+	font-family: Georgia;
 }
 ```
 
 By separating the CSS selectors with a comma, both the `<h1>` elements and the elements with the `menu` class will receive the `font-family: Georgia` styling.
 
 ## Visual Rules
-
 ### Font Size
 
-Changing the typeface isn’t the only way to customize the text. Oftentimes, different sections of a web page are highlighted by modifying the *font size*.
+Changing the typeface isn’t the only way to customize the text. Oftentimes, different sections of a web page are highlighted by modifying the _font size_.
 
 To change the size of text on your web page, you can use the [`font-size`](https://www.codecademy.com/resources/docs/css/typography/font-size) property.
 
 ```css
 p {
-  font-size: 18px;
+	font-size: 18px;
 }
 ```
 
@@ -358,7 +335,7 @@ In CSS, the [`font-weight`](https://www.codecademy.com/resources/docs/css/typog
 
 ```css
 p {
-  font-weight: bold;
+	font-weight: bold;
 }
 ```
 
@@ -366,7 +343,7 @@ In the example above, all paragraphs on the web page would appear bolded.
 
 The `font-weight` property has another value: `normal`. Why does it exist?
 
-If we wanted *all* text on a web page to appear bolded, we could select all text elements and change their font weight to `bold`. If a certain section of text was required to appear normal, however, we could set the font weight of that particular element to `normal`, essentially shutting off bold for that element.
+If we wanted _all_ text on a web page to appear bolded, we could select all text elements and change their font weight to `bold`. If a certain section of text was required to appear normal, however, we could set the font weight of that particular element to `normal`, essentially shutting off bold for that element.
 
 ### Color and Background Color
 
@@ -375,7 +352,7 @@ Before discussing the specifics of color, it’s important to make two distincti
 - Foreground color
 - Background color
 
-Foreground color is the color that an element appears in. For example, when a heading is styled to appear green, the *foreground color* of the heading has been styled. Conversely, when a heading is styled so that its background appears yellow, the *background color* of the heading has been styled.
+Foreground color is the color that an element appears in. For example, when a heading is styled to appear green, the _foreground color_ of the heading has been styled. Conversely, when a heading is styled so that its background appears yellow, the _background color_ of the heading has been styled.
 
 In CSS, these two design aspects can be styled with the following two properties:
 
@@ -384,8 +361,8 @@ In CSS, these two design aspects can be styled with the following two properties
 
 ```css
 h1 {
-  color: red;
-  background-color: blue;
+	color: red;
+	background-color: blue;
 }
 ```
 
@@ -399,7 +376,7 @@ Opacity can be used to make elements fade into others for a nice overlay effect.
 
 ```css
 .overlay {
-  opacity: 0.5;
+	opacity: 0.5;
 }
 ```
 
@@ -411,7 +388,7 @@ CSS has the ability to change the background of an element. One option is to mak
 
 ```css
 .main-banner {
-  background-image: url("https://www.example.com/image.jpg");
+	background-image: url('https://www.example.com/image.jpg');
 }
 ```
 
@@ -420,7 +397,7 @@ CSS has the ability to change the background of an element. One option is to mak
 
 ```css
 .main-banner {
-  background-image: url("images/mountains.jpg");
+	background-image: url('images/mountains.jpg');
 }
 ```
 
@@ -443,21 +420,21 @@ CSS has the ability to change the background of an element. One option is to mak
 - `overflow`
 - `overflow-x`
 - `overflow-y`
--
+- 
 
 ### Important
 
-`!important` can be applied to specific declarations, instead of full rules. It will override *any* style no matter how specific it is. As a result, it should almost never be used. Once `!important` is used, it is very hard to override.
+`!important` can be applied to specific declarations, instead of full rules. It will override _any_ style no matter how specific it is. As a result, it should almost never be used. Once `!important` is used, it is very hard to override.
 
 The syntax of `!important` in CSS looks like this:
 
 ```css
 p {
-  color: blue !important;
+	color: blue !important;
 }
 
 .main p {
-  color: red;
+	color: red;
 }
 ```
 
@@ -466,17 +443,15 @@ Since `!important` is used on the `p` selector’s [`color`](https://www.co
 One justification for using `!important` is when working with multiple stylesheets. For example, if we are using the [Bootstrap](https://getbootstrap.com/) CSS framework and want to override the styles for one specific HTML element, we can use the `!important` property.
 
 ## The Box Model
-
 ### Introduction to the Box Model
 
-Browsers load HTML elements with default position values. This often leads to an unexpected and unwanted user experience while limiting the views you can create. In this lesson, you will learn about the *box model*, an important concept to understand how elements are positioned and displayed on a website.
+Browsers load HTML elements with default position values. This often leads to an unexpected and unwanted user experience while limiting the views you can create. In this lesson, you will learn about the _box model_, an important concept to understand how elements are positioned and displayed on a website.
 
 If you have used HTML and CSS, you have unknowingly seen aspects of the [box model](https://www.codecademy.com/resources/docs/css/box-model). For example, if you have set the background color of an element, you may have noticed that the color was applied not only to the area directly behind the element but also to the area to the right of the element. Also, if you have aligned text, you know it is aligned relative to something. What is that something?
 
 All elements on a web page are interpreted by the browser as “living” inside of a box. This is what is meant by the box model.
 
 # Changing the Box Model
-
 ### Why Change the Box Model?
 
 The box model has an awkward limitation regarding box dimensions. This limitation is best illustrated with an example.
@@ -487,10 +462,10 @@ The box model has an awkward limitation regarding box dimensions. This limitati
 
 ```css
 h1 {
-  border: 1px solid black;
-  height: 200px;
-  width: 300px;
-  padding: 10px;
+	border: 1px solid black;
+	height: 200px;
+	width: 300px;
+	padding: 10px;
 }
 ```
 
@@ -531,17 +506,17 @@ In this box model, the height and width of the box will remain fixed. The bor
 
 ```css
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 h1 {
-  border: 1px dashed #4f768e;
-  height: 150px;
-  width: 200px;
-  padding: 20px;
+	border: 1px dashed #4f768e;
+	height: 150px;
+	width: 200px;
+	padding: 20px;
 }
 ```
 
-In the example above, the height of the box would remain at 150 pixels and the width would remain at 200 pixels. The border thickness and padding would remain entirely *inside* of the box.
+In the example above, the height of the box would remain at 150 pixels and the width would remain at 200 pixels. The border thickness and padding would remain entirely _inside_ of the box.
 
 ![[htmlcss1-diagram__borderbox.svg|750]]
 
@@ -549,13 +524,13 @@ In the example above, the height of the box would remain at 150 pixels and the w
 
 ### Position
 
-Take a look at the *block-level* elements in the image below:
+Take a look at the _block-level_ elements in the image below:
 
 ![[htmlcssPosition-updated.webp|500]]
 
-Block-level elements like these boxes create a *block* the full width of their parent elements, and they prevent other elements from appearing in the same horizontal space.
+Block-level elements like these boxes create a _block_ the full width of their parent elements, and they prevent other elements from appearing in the same horizontal space.
 
-Notice the block-level elements in the image above take up their own line of space and therefore don’t overlap each other. In the browser to the right, you can see block-level elements also consistently appear on the left side of the browser. This is the default *position* for block-level elements.
+Notice the block-level elements in the image above take up their own line of space and therefore don’t overlap each other. In the browser to the right, you can see block-level elements also consistently appear on the left side of the browser. This is the default _position_ for block-level elements.
 
 The default position of an element can be changed by setting its `position` property. The `position` property can take one of five values:
 
@@ -573,16 +548,16 @@ This is the default position of the element. Top, left, right, bottom do not aff
 
 One way to modify the default position of an element is by setting its `position`  property to `relative`.
 
-This value allows you to position an element *relative* to its default static position on the web page.
+This value allows you to position an element _relative_ to its default static position on the web page.
 
 ```css
 .green-box {
-  background-color: green;
-  position: relative;
+	background-color: green;
+	position: relative;
 }
 ```
 
-Although the code in the example above instructs the browser to expect a relative positioning of the `.green-box` element, it does not specify where the `.green-box` element should be positioned on the page. This is done by accompanying the `position` declaration with one or more of the following *offset properties* that will move the element away from its default static position:
+Although the code in the example above instructs the browser to expect a relative positioning of the `.green-box` element, it does not specify where the `.green-box` element should be positioned on the page. This is done by accompanying the `position` declaration with one or more of the following _offset properties_ that will move the element away from its default static position:
 
 - `top` - moves the element down from the top.
 - `bottom` - moves the element up from the bottom.
@@ -593,10 +568,10 @@ You can specify values in pixels, ems, or percentages, among others, to dial in 
 
 ```css
 .green-box {
-  background-color: green;
-  position: relative;
-  top: 50px;
-  left: 120px;
+	background-color: green;
+	position: relative;
+	top: 50px;
+	left: 120px;
 }
 ```
 
@@ -614,13 +589,13 @@ When an element is set to static, it's top, left, right, bottom are all going to
 
 When an element’s position is set to `absolute`, as in the last exercise, the element will scroll with the rest of the document when a user scrolls.
 
-We can *fix* an element to a specific position on the page (regardless of user scrolling) by setting its position to `fixed`, and accompanying it with the familiar offset properties `top`, `bottom`, `left`, and `right`.
+We can _fix_ an element to a specific position on the page (regardless of user scrolling) by setting its position to `fixed`, and accompanying it with the familiar offset properties `top`, `bottom`, `left`, and `right`.
 
 ```css
 .title {
-  position: fixed;
-  top: 0px;
-  left: 0px;
+	position: fixed;
+	top: 0px;
+	left: 0px;
 }
 ```
 
@@ -636,39 +611,39 @@ When boxes on a web page have a combination of different positions, the boxes (a
 
 ```css
 .blue-box {
-  background-color: blue;
+	background-color: blue;
 }
 
 .green-box {
-  background-color: green;
-  position: relative;
-  top: -170px;
-  left: 170px;
+	background-color: green;
+	position: relative;
+	top: -170px;
+	left: 170px;
 }
 ```
 
 In the example above, the `.green-box` element overlaps on top of the `.blue-box` element.
 
-The `z-index` property controls how far back or how far forward an element should appear on the web page when elements overlap. This can be thought of as the *depth* of elements, with deeper elements appearing behind shallower elements.
+The `z-index` property controls how far back or how far forward an element should appear on the web page when elements overlap. This can be thought of as the _depth_ of elements, with deeper elements appearing behind shallower elements.
 
 The `z-index` property accepts integer values. Depending on their values, the integers instruct the browser on the order in which elements should be layered on the web page.
 
 ```css
 .blue-box {
-  background-color: blue;
-  position: relative;
-  z-index: 1;
+	background-color: blue;
+	position: relative;
+	z-index: 1;
 }
 
 .green-box {
-  background-color: green;
-  position: relative;
-  top: -170px;
-  left: 170px;
+	background-color: green;
+	position: relative;
+	top: -170px;
+	left: 170px;
 }
 ```
 
-In the example above, we set the `.blue-box` position to `relative` and the z-index to 1. We changed position to `relative`, because the `z-index` property does *not* work on static elements. The z-index of `1` moves the `.blue-box` element forward, because the `z-index` value has not been explicitly specified for the `.green-box` element, which means it has a default `z-index` value of 0. Take a look at the example image below:
+In the example above, we set the `.blue-box` position to `relative` and the z-index to 1. We changed position to `relative`, because the `z-index` property does _not_ work on static elements. The z-index of `1` moves the `.blue-box` element forward, because the `z-index` value has not been explicitly specified for the `.green-box` element, which means it has a default `z-index` value of 0. Take a look at the example image below:
 
 ![Diagram of z-index|500](https://static-assets.codecademy.com/Courses/Learn-CSS/Display-Position/Z-index.png)
 
@@ -684,21 +659,21 @@ Let’s take a look at the code:
 
 ```html
 <div class="rectangle">
-  <p>I’m a rectangle!</p>
+	<p>I’m a rectangle!</p>
 </div>
 <div class="rectangle">
-  <p>So am I!</p>
+	<p>So am I!</p>
 </div>
 <div class="rectangle">
-  <p>Me three!</p>
+	<p>Me three!</p>
 </div>
 ```
 
 ```css
 .rectangle {
-  display: inline-block;
-  width: 200px;
-  height: 300px;
+	display: inline-block;
+	width: 200px;
+	height: 300px;
 }
 ```
 
@@ -717,14 +692,14 @@ The `float` property is often set using one of the values below:
 
 ```css
 .green-section {
-  width: 50%;
-  height: 150px;
+	width: 50%;
+	height: 150px;
 }
 
 .orange-section {
-  background-color: orange;
-  width: 50%;
-  float: right;
+	background-color: orange;
+	width: 50%;
+	float: right;
 }
 ```
 
@@ -747,12 +722,12 @@ The `clear` property specifies how elements should behave when they bump into 
 
 ```css
 div {
-  width: 200px;
-  float: left;
+	width: 200px;
+	float: left;
 }
 
 div.special {
-  clear: left;
+	clear: left;
 }
 ```
 
@@ -760,7 +735,7 @@ In the example above, all `<div>`s on the page are floated to the left side. Th
 
 # Flex Box
 
-While display and positioning has got a lot of features in css, its not enough. Designers wanted more flexibility and computing power to design their websites.
+While display and positioning has got a lot of features in css, its not enough. Designers wanted more flexibility and computing power to design their websites. 
 So came the rise of flex-box, I won't go over the details, but I'll provide a website ([here](https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/)) that is very interactive and aesthetic I must say. Its a good inspiration as well as learning experience.
 
 All the best learning!

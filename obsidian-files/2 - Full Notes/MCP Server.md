@@ -61,7 +61,13 @@ MCP server's are powerful for mainly 4 reasons:
 
 ## Are MCP server really that great?
 
+Some AI projects do not support MCP _natively_. OpenClaw for example does not, one needs to use an extension `MCPorter` that converts MCP commands to a CLI interface that OpenClaw can interact with.
 
+The architectural choice to prioritize native CLI and built-in tools over MCP was driven by three primary challenges: [[1](https://www.youtube.com/watch?v=JD1qsessf7Y&t=25), [2](https://www.linkedin.com/posts/sylvainkalache_developers-are-moving-away-from-mcp-and-getting-activity-7435680087242592256-29bL)]
+
+- **Token Bloat and Context Rot:** Loading MCP servers requires passing heavy instructions and schemas to the AI. Describing tools for an MCP server can consume up to 15,000 tokens, degrading context windows, whereas a CLI help text takes around 300 tokens. [[1](https://www.linkedin.com/posts/sylvainkalache_developers-are-moving-away-from-mcp-and-getting-activity-7435680087242592256-29bL), [2](https://www.youtube.com/watch?v=JD1qsessf7Y&t=25)]
+- **System Fragility:** MCP servers are highly opinionated and dictate _how_ an agent must use a tool, which limits flexibility. By contrast, LLMs are deeply trained on CLI syntax and documentation, allowing agents to improvise and compose commands natively. [[1](https://www.youtube.com/watch?v=JD1qsessf7Y&t=25)]
+- **Security & Sandboxing:** Many third-party MCP servers are unofficial and pose prompt injection risks in enterprise environments, whereas CLIs rely on mature, proven OS-level security. [[1](https://www.youtube.com/watch?v=JD1qsessf7Y&t=25)]
 
 # References
 My curiosity and AI
