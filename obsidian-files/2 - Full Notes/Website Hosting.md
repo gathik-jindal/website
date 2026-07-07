@@ -1,6 +1,6 @@
 15th May '26, 07:13am
 
-Status: #ProperNotes #InProgress 
+Status: #ProperNotes #Completed
 
 Tags: [[Web Dev]] [[Hosting]]
 

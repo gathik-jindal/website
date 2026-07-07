@@ -1,6 +1,6 @@
 12th May '26, 09:45am
 
-Status: #ProperNotes #InProgress 
+Status: #ProperNotes #Completed 
 
 Tags: [[Web Dev]] [[Network]] [[JavaScript]]
 
