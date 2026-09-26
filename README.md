@@ -1,6 +1,6 @@
 # Gathik Jindal Portfolio
 
-A dependency-free portfolio and Obsidian-powered notes site. The design is inspired by compact dashboard interfaces: warm paper background, sharp grid borders, a persistent header, an optional sidebar, and dense panels.
+A dependency-free portfolio and Obsidian-powered notes site. The design follows Codecademy's look: beige paper, navy ink, "hyper" blue and yellow accents, sharp grid borders, a hatched hover shadow, Inter for text and IBM Plex Mono for labels. It has a light and a dark theme, and the home page includes a live graph of the published notes.
 
 ## What This Repo Does
 
@@ -13,14 +13,17 @@ A dependency-free portfolio and Obsidian-powered notes site. The design is inspi
 
 ## Project Structure
 
-- `index.html` - portfolio dashboard homepage
+- `index.html` - portfolio homepage with the live note graph
+- `projects.html` - project list
 - `notes.html` - Obsidian notes browser
 - `assets/css/base.css` - shared layout, tokens, and chrome
 - `assets/css/pages/home.css` - portfolio homepage styles
 - `assets/css/pages/notes.css` - notes browser styles
+- `assets/css/pages/projects.css` - projects page styles
 - `assets/css/styles.css` - compatibility entry point that imports the split stylesheets
-- `assets/js/main.js` - smooth in-page navigation
-- `assets/js/notes.js` - notes search, tag filtering, sidebar list, and markdown rendering
+- `assets/js/main.js` - theme toggle, page transitions, headline and panel reveals
+- `assets/js/graph.js` - the interactive note graph on the homepage (reads the notes index)
+- `assets/js/notes.js` - notes search, tag filtering, sidebar list, markdown rendering, and links between notes
 - `scripts/build_obsidian_index.py` - scans Obsidian notes and creates the notes index
 - `scripts/copy_obsidian.py` - optional helper for copying a vault/folder into this repo
 - `obsidian-files/2 - Full Notes` - top-level concrete notes shown on the site
@@ -76,6 +79,14 @@ Note content starts here.
 ```
 
 The first date line, `Status:`, and `Tags:` are used for filtering/display. The first `# Heading` becomes the note title.
+
+Inside a note, `[[Other Note]]` becomes a clickable link when that note is also published (otherwise it shows as a plain pill), and Obsidian `==highlights==` render as highlighted text.
+
+The notes page accepts `?tag=Topic` to open pre-filtered; the homepage graph uses this when a topic is clicked.
+
+## Motion and accessibility
+
+All animation is switched off for visitors who set "reduce motion" in their OS. The page curtain lifts on its own via CSS, so a JavaScript error can never leave the page covered.
 
 ## Copy Obsidian Files
 

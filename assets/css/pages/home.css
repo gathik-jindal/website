@@ -1,91 +1,199 @@
+/* =========================================================
+   Hero: intro copy on the left, live note graph on the right
+   ========================================================= */
 .hero-panel {
     display: grid;
-    grid-template-columns: minmax(0, 2fr) minmax(220px, 0.72fr);
-    border-bottom: 0;
+    grid-template-columns: minmax(0, 1.35fr) minmax(300px, 1fr);
 }
 
 .hero-copy {
-    padding: 24px 18px;
-    border-right: 1.5px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 28px 18px;
+    border-right: var(--rule) solid var(--line);
 }
 
 .hero-copy h2 {
     max-width: 650px;
-    margin: 0 0 12px;
-    font-size: clamp(26px, 4.6vw, 44px);
+    margin: 0 0 14px;
+    font-size: clamp(28px, 4.2vw, 48px);
+    font-weight: 800;
     line-height: 1.02;
+    letter-spacing: -0.025em;
 }
 
-.hero-copy p,
-.coach-card p,
-.course-card p,
-.plan-card p {
+.hero-copy h2 .name {
+    display: inline-block;
+    padding: 0 4px;
+    background: var(--yellow);
+    color: var(--on-yellow);
+}
+
+.hero-copy p:not(.panel-label) {
+    max-width: 56ch;
+    margin: 0;
     color: var(--muted);
-    line-height: 1.45;
+    line-height: 1.5;
 }
 
-.trend-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px 18px;
-    margin-top: 18px;
-    font-size: 13px;
-}
-
-.coach-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 18px;
-    background: var(--paper);
-    text-align: center;
-}
-
-.coach-card h3 {
-    margin: 14px 0 8px;
-    font-size: 22px;
-    line-height: 1.05;
-}
-
-.coach-image {
+/* Graph panel sits on Codecademy-style dotted paper */
+.hero-graph {
     position: relative;
-    height: 78px;
+    display: grid;
+    min-height: 420px;
+    margin: 0;
+    background-color: var(--paper-deep);
+    background-image: radial-gradient(var(--pattern) 1.2px, transparent 1.4px);
+    background-size: 14px 14px;
+    transition: background-color 300ms ease;
+}
+
+.hero-graph canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    cursor: grab;
+    touch-action: pan-y;
+}
+
+.hero-graph figcaption {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 8px 12px;
+    pointer-events: none;
+}
+
+.graph-caption {
+    max-width: 36ch;
+    margin: 0;
+    padding: 8px 10px;
+    border: var(--rule) solid var(--line);
+    border-radius: 4px;
+    background: var(--paper);
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+.graph-legend {
+    display: flex;
+    gap: 12px;
+    margin: 0;
+    padding: 6px 10px;
+    border: var(--rule) solid var(--line);
+    border-radius: 4px;
+    background: var(--paper);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    list-style: none;
+    text-transform: uppercase;
+}
+
+.graph-legend li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.graph-legend i {
+    display: inline-block;
+    border: var(--rule) solid var(--line);
+    border-radius: 50%;
+}
+
+.legend-topic {
+    width: 12px;
+    height: 12px;
+    background: var(--blue);
+}
+
+.legend-note {
+    width: 7px;
+    height: 7px;
+    background: var(--ink);
+}
+
+/* =========================================================
+   Call-to-action strip
+   ========================================================= */
+.cta-strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-bottom: var(--rule) solid var(--line);
 }
 
 .panel-cta {
     display: grid;
-    min-height: 38px;
+    min-height: 44px;
     place-items: center;
-    border-top: 1.5px solid var(--line);
-    border-right: 1.5px solid var(--line);
-    background: var(--ink);
-    color: var(--paper);
-    font-size: 12px;
+    border-right: var(--rule) solid var(--line);
+    font-size: 13px;
     font-weight: 700;
 }
 
-.panel-cta-alt {
+.panel-cta:last-child {
     border-right: 0;
 }
 
+.panel-cta-blue {
+    background: var(--blue);
+    color: var(--on-blue);
+}
+
+.panel-cta-ink {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.panel-cta-plain {
+    background: var(--paper);
+}
+
+/* =========================================================
+   Learning meter
+   ========================================================= */
 .progress-panel {
     padding: 16px 0 0;
-    border-top: 1.5px solid var(--line);
+}
+
+.progress-count {
+    font-family: var(--font-mono);
+    font-size: 20px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
 }
 
 .progress-track {
     height: 20px;
-    border-top: 1.5px solid var(--line);
+    border-top: var(--rule) solid var(--line);
     background: var(--paper-deep);
 }
 
 .progress-track span {
     display: block;
+    width: var(--w, 0%);
     height: 100%;
-    border-right: 1.5px solid var(--line);
+    border-right: var(--rule) solid var(--line);
     background: repeating-linear-gradient(45deg, var(--ink), var(--ink) 4px, transparent 4px, transparent 8px);
+    transition: width 1400ms var(--ease-out) 150ms;
 }
 
+.js .progress-track span:not(.is-in) {
+    width: 0;
+}
+
+/* =========================================================
+   Featured work
+   ========================================================= */
 .split-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(220px, 0.72fr);
@@ -93,116 +201,97 @@
 
 .course-card,
 .plan-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     min-height: 220px;
     padding: 22px 18px;
-    border-right: 1.5px solid var(--line);
-    background: var(--paper);
+    border-right: var(--rule) solid var(--line);
+    border-bottom: 0;
 }
 
 .plan-card {
     border-right: 0;
 }
 
+.course-card .panel-label,
+.plan-card .panel-label {
+    margin: 0;
+}
+
 .course-card h2,
-.plan-card h2,
-.bottom-bar h2 {
+.plan-card h2 {
     margin: 0;
-    font-size: 26px;
+    font-size: 28px;
+    font-weight: 800;
     line-height: 1.05;
+    letter-spacing: -0.02em;
 }
 
-.course-card a {
-    display: inline-block;
-    margin-top: 12px;
-    border-bottom: 1.5px solid var(--line);
-    font-weight: 700;
-}
-
-.bottom-bar {
-    display: grid;
-    border-top: 1.5px solid var(--line);
-    background: var(--paper);
-}
-
-.bottom-bar-inner {
-    display: grid;
-    grid-template-columns: 464px 1fr;
-    width: min(100% - 48px, 1450px);
-    min-height: 50px;
-    margin: 0 auto;
-    border-right: 1.5px solid var(--line);
-    border-left: 1.5px solid var(--line);
-    background: var(--paper);
-}
-
-.bottom-bar-intro {
-    padding: 22px 18px;
-    border-right: 1.5px solid var(--line);
-}
-
-.bottom-bar-intro h2 {
+.course-card p:not(.panel-label),
+.plan-card p:not(.panel-label) {
+    max-width: 60ch;
     margin: 0;
-    font-size: 26px;
-    line-height: 1.05;
-}
-
-.bottom-bar-intro p:not(.panel-label) {
-    margin: 12px 0 0;
     color: var(--muted);
     line-height: 1.45;
 }
 
-.bottom-bar-grid {
-    display: grid;
-    grid-template-columns: 1fr;
+.card-foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 6px;
 }
 
-.bottom-bar-card {
-    display: grid;
-    gap: 8px;
-    min-height: 86px;
-    padding: 18px;
-    border-bottom: 1.5px solid var(--line);
-    background: var(--paper);
-}
-
-.bottom-bar-card:last-child {
-    border-bottom: 0;
-}
-
-.bottom-bar-card span {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.bottom-bar-card strong {
-    overflow-wrap: anywhere;
-    font-size: clamp(18px, 3vw, 28px);
-    line-height: 1.05;
-}
-
-@media (max-width: 840px) {
-
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 900px) {
     .hero-panel,
-    .split-grid,
-    .bottom-bar {
+    .split-grid {
         grid-template-columns: 1fr;
     }
 
-    .hero-copy,
-    .bottom-bar-intro,
-    .course-card,
-    .plan-card {
+    .hero-copy {
         border-right: 0;
-        border-bottom: 1.5px solid var(--line);
+        border-bottom: var(--rule) solid var(--line);
+    }
+
+    .hero-graph canvas {
+        min-height: 380px;
+    }
+
+    .hero-graph figcaption {
+        position: static;
+        padding: 10px 12px;
+        border-top: var(--rule) solid var(--line);
+        background: var(--paper);
+    }
+
+    .graph-caption,
+    .graph-legend {
+        padding: 0;
+        border: 0;
+        background: none;
+    }
+
+    .cta-strip {
+        grid-template-columns: 1fr;
     }
 
     .panel-cta {
         border-right: 0;
+        border-bottom: var(--rule) solid var(--line);
     }
 
-    .trend-grid {
-        grid-template-columns: 1fr;
+    .panel-cta:last-child {
+        border-bottom: 0;
+    }
+
+    .course-card {
+        border-right: 0;
+        border-bottom: var(--rule) solid var(--line);
     }
 }

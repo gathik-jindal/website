@@ -1,19 +1,22 @@
-.blog-board,
 .notes-board {
     display: grid;
 }
 
-.filter-panel {
-    padding: 18px;
-}
-
+/* =========================================================
+   Sidebar
+   ========================================================= */
 .sidebar-notes {
-    margin-top: 28px;
-    border-top: 1.5px solid var(--line);
+    position: sticky;
+    top: 53px;
+    max-height: calc(100vh - 53px);
+    overflow-y: auto;
+    scrollbar-width: thin;
 }
 
 .sidebar-notes .panel-label {
-    padding: 14px 14px 0;
+    margin: 0;
+    padding: 14px 14px 10px;
+    border-bottom: var(--rule) solid var(--line);
 }
 
 .sidebar-note-list {
@@ -26,17 +29,22 @@
     width: 100%;
     padding: 10px 14px;
     border: 0;
-    border-bottom: 1.5px solid var(--line);
+    border-bottom: var(--rule) solid var(--line);
     background: var(--paper);
     cursor: pointer;
     text-align: left;
+    transition: background-color 150ms ease;
+}
+
+.sidebar-note:hover {
+    background: var(--paper-deep);
 }
 
 .sidebar-note span {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 700;
 }
 
@@ -53,17 +61,43 @@
 
 .sidebar-note.is-selected {
     background: var(--paper-deep);
+    box-shadow: inset 4px 0 0 var(--blue);
+}
+
+/* =========================================================
+   Filters
+   ========================================================= */
+.filter-panel {
+    padding: 18px;
+}
+
+.search-label,
+.filter-title {
+    display: block;
+    margin: 0 0 8px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
 
 .note-search {
     width: 100%;
-    min-height: 42px;
+    min-height: 44px;
     margin-bottom: 18px;
     padding: 0 12px;
-    border: 1.5px solid var(--line);
+    border: var(--rule) solid var(--line);
+    border-radius: 4px;
     background: var(--paper);
     color: var(--ink);
     font: inherit;
+    transition: box-shadow 150ms ease;
+}
+
+.note-search:focus {
+    outline: none;
+    box-shadow: 4px 4px 0 var(--ink);
 }
 
 .filter-row {
@@ -71,10 +105,10 @@
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
-.filter-row .panel-label {
+.filter-row .filter-title {
     margin: 0;
 }
 
@@ -88,24 +122,27 @@
     gap: 8px;
 }
 
-.tag-list.is-collapsed .tag:nth-of-type(n + 9) {
+.tag-list.is-collapsed .tag:nth-of-type(n + 13) {
     display: none;
 }
 
 .tag {
-    min-height: 30px;
-    padding: 0 10px;
-    border: 1.5px solid var(--line);
-    border-radius: 999px;
-    background: var(--paper);
     cursor: pointer;
-    font-size: 12px;
+    transition: background-color 150ms ease;
+}
+
+.tag:hover {
+    background: var(--paper-deep);
 }
 
 .tag.is-active {
     background: var(--yellow);
+    color: var(--on-yellow);
 }
 
+/* =========================================================
+   Note cards
+   ========================================================= */
 .post-area {
     min-width: 0;
 }
@@ -118,16 +155,35 @@
 .post-card {
     display: grid;
     grid-template-columns: 1fr auto;
+    align-content: start;
     gap: 18px;
     width: 100%;
     min-height: 132px;
     padding: 18px;
     border: 0;
-    border-bottom: 1.5px solid var(--line);
-    border-right: 1.5px solid var(--line);
+    border-right: var(--rule) solid var(--line);
+    border-bottom: var(--rule) solid var(--line);
     background: var(--paper);
     cursor: pointer;
     text-align: left;
+    animation: card-in 400ms var(--ease-out) backwards;
+    animation-delay: min(calc(var(--i, 0) * 25ms), 400ms);
+}
+
+.post-card:nth-child(2n) {
+    border-right: 0;
+}
+
+.post-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    border-right: 0;
+}
+
+@keyframes card-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
 }
 
 .post-card.is-selected {
@@ -136,88 +192,149 @@
 
 .post-card h2 {
     margin: 0 0 8px;
-    font-size: 24px;
-    line-height: 1.05;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    transition: color 150ms ease;
+}
+
+.post-card:hover h2 {
+    color: var(--blue);
 }
 
 .post-card p {
+    display: -webkit-box;
     margin: 0;
+    overflow: hidden;
     color: var(--muted);
     line-height: 1.45;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
 }
 
 .post-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
     white-space: nowrap;
-    font-size: 12px;
-    font-weight: 700;
 }
 
+.empty-state {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 22px 18px;
+    color: var(--muted);
+}
+
+.empty-state code {
+    padding: 2px 5px;
+    background: var(--soft);
+    font-family: var(--font-mono);
+    font-size: 14px;
+}
+
+/* =========================================================
+   Reader
+   ========================================================= */
 .reader {
     padding: 22px 18px;
-    background: var(--paper);
+}
+
+.reader.is-opening {
+    animation: reader-in 400ms var(--ease-out) backwards;
+}
+
+@keyframes reader-in {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
 }
 
 .reader-close {
     float: right;
+    margin: 0 0 12px 12px;
 }
 
 .reader h1 {
     max-width: 760px;
-    margin-top: 0;
+    margin: 0 0 18px;
     font-size: clamp(30px, 5vw, 54px);
+    font-weight: 800;
     line-height: 1;
+    letter-spacing: -0.03em;
 }
 
 .reader h2 {
-    margin-top: 30px;
+    margin: 32px 0 10px;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.015em;
 }
 
 .reader h3,
 .reader h4 {
-    margin-top: 24px;
+    margin: 24px 0 8px;
+    font-weight: 800;
 }
 
 .reader p,
 .reader li {
-    max-width: 720px;
+    max-width: 72ch;
     color: var(--muted);
+    font-size: 17px;
     line-height: 1.65;
 }
 
 .reader a {
-    border-bottom: 1.5px solid var(--line);
+    border-bottom: var(--rule) solid var(--line);
     font-weight: 700;
 }
 
 .reader blockquote {
-    max-width: 720px;
+    max-width: 72ch;
     margin: 18px 0;
     padding: 12px 16px;
     border-left: 6px solid var(--line);
-    background: var(--paper);
+    background: var(--paper-deep);
     color: var(--muted);
+}
+
+.reader mark {
+    padding: 0 3px;
+    background: var(--yellow);
+    color: var(--on-yellow);
 }
 
 .reader code {
     padding: 2px 4px;
     background: var(--soft);
+    font-family: var(--font-mono);
+    font-size: 0.88em;
 }
 
 .reader pre {
     overflow-x: auto;
     padding: 14px;
-    border: 1.5px solid var(--line);
-    background: var(--ink);
-    color: var(--paper);
+    border: var(--rule) solid var(--line);
+    background: #10162f;
+    color: #fff0e5;
+}
+
+.reader pre code {
+    padding: 0;
+    background: none;
+    font-size: 14px;
 }
 
 .reader-note-head {
     margin-bottom: 18px;
     padding-bottom: 14px;
-    border-bottom: 1.5px solid var(--line);
+    border-bottom: var(--rule) solid var(--line);
 }
 
-.reader-status {
+.reader .reader-status {
     margin: 0 0 10px;
     color: var(--muted);
     font-size: 13px;
@@ -236,27 +353,39 @@
     align-items: center;
     min-height: 26px;
     padding: 0 8px;
-    border: 1.5px solid var(--line);
+    border: var(--rule) solid var(--line);
     border-radius: 999px;
     background: var(--paper);
     color: var(--ink);
     font-size: 12px;
     font-weight: 700;
+    vertical-align: middle;
+}
+
+.reader a.wiki-link {
+    border-bottom: var(--rule) solid var(--line);
+    background: var(--paper-deep);
+    transition: background-color 150ms ease;
+}
+
+.reader a.wiki-link:hover {
+    background: var(--yellow);
+    color: var(--on-yellow);
 }
 
 .note-image {
     display: block;
     max-width: min(100%, 760px);
     margin: 18px 0;
-    border: 1.5px solid var(--line);
+    border: var(--rule) solid var(--line);
     background: var(--paper);
 }
 
 .table-wrap {
     max-width: 100%;
-    overflow-x: auto;
     margin: 18px 0;
-    border: 1.5px solid var(--line);
+    overflow-x: auto;
+    border: var(--rule) solid var(--line);
 }
 
 .reader table {
@@ -269,7 +398,7 @@
 .reader th,
 .reader td {
     padding: 10px;
-    border: 1.5px solid var(--line);
+    border: var(--rule) solid var(--line);
     text-align: left;
     vertical-align: top;
 }
@@ -278,14 +407,13 @@
     background: var(--paper-deep);
 }
 
-@media (max-width: 840px) {
-
-    .notes-board,
+@media (max-width: 900px) {
     .post-grid {
         grid-template-columns: 1fr;
     }
 
-    .post-card {
+    .post-card,
+    .post-card:last-child:nth-child(odd) {
         border-right: 0;
     }
 }

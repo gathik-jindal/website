@@ -9,5 +9,5 @@
 - [ ] Add projects.
 - [ ] add alternate email.
 - [ ] remove file extensions from links.
-- [ ] make the links in the notes actually work.
-- [ ] replace "use my portfolio" with a better logo/icon
+- [x] make the links in the notes actually work. (wiki-links between published notes)
+- [x] replace "use my portfolio" with a better logo/icon (replaced by the live note graph)

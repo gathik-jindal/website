@@ -19,13 +19,17 @@ def slugify(value: str) -> str:
 
 
 def extract_wikilinks(value: str) -> list[str]:
-    return re.findall(r"\[\[([^\]|]+)(?:\|[^\]]+)?\]\]", value)
+    # "[[4 - Tags/Containers]]" and "[[Containers]]" should both become "Containers".
+    names = re.findall(r"\[\[([^\]|]+)(?:\|[^\]]+)?\]\]", value)
+    cleaned = [name.split("/")[-1].split("#")[0].strip() for name in names]
+    return list(dict.fromkeys(name for name in cleaned if name))
 
 
 def clean_preview_line(value: str) -> str:
     value = re.sub(r"!\[\[[^\]]+\]\]", "", value)
     value = re.sub(r"\[\[([^\]|]+)(?:\|([^\]]+))?\]\]", lambda m: m.group(2) or m.group(1), value)
     value = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", value)
+    value = re.sub(r"==(?=\S)(.+?)(?<=\S)==", r"\1", value)  # Obsidian ==highlights==
     value = re.sub(r"[#*_`>~-]+", " ", value)
     return " ".join(value.split())
 

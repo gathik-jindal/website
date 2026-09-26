@@ -6,11 +6,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Portfolio dashboard for Gathik Jindal.">
   <title>Gathik Jindal | Portfolio</title>
+  <link rel="icon" type="image/png" href="assets/images/mardown-icon.png">
+  <script>
+    // Apply the saved (or OS) theme before first paint so the page never flashes.
+    (function () {
+      var root = document.documentElement;
+      var theme = null;
+      try { theme = localStorage.getItem("theme"); } catch (e) { }
+      if (!theme) theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      root.setAttribute("data-theme", theme);
+      root.classList.add("js");
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400..800&display=swap">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/pages/home.css">
 </head>
 
 <body class="page page-home page-no-sidebar">
+  <div class="page-curtain" aria-hidden="true"><span><b>gathik</b>jindal</span></div>
+
   <header class="topbar">
     <div class="topbar-inner">
       <a class="logo" href="index.html" aria-label="Gathik Jindal home"><span>gathik</span>jindal</a>
@@ -21,8 +39,16 @@
         <a class="hover-pop" href="#contact">Contact</a>
       </nav>
       <div class="top-actions">
-        <a class="icon-button hover-pop" href="https://github.com/gathik-jindal" target="_blank" aria-label="GitHub">
-          <!-- svg for github, wild -->
+        <button class="icon-button theme-toggle hover-pop" id="themeToggle" type="button" aria-label="Switch to dark theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.5" />
+            <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" />
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" />
+          </svg>
+        </button>
+        <a class="icon-button hover-pop" href="https://github.com/gathik-jindal" target="_blank" rel="noreferrer" aria-label="GitHub">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path
               d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.19-3.37-1.19-.45-1.16-1.1-1.46-1.1-1.46-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.51 9.51 0 0 1 12 6.01c.85 0 1.7.11 2.5.34 1.9-1.29 2.74-1.02 2.74-1.02.55 1.37.2 2.39.1 2.64.64.7 1.02 1.59 1.02 2.68 0 3.83-2.34 4.67-4.56 4.92.36.31.68.92.68 1.86v2.76c0 .26.18.58.69.48A10 10 0 0 0 12 2Z" />
@@ -37,82 +63,103 @@
     <main class="dashboard" id="dashboard">
       <section class="panel header-panel">
         <p class="panel-label">Portfolio cockpit</p>
-        <h1>Advance with focused projects, sharp notes, and useful software.</h1>
+        <h1 data-split style="--d: 400ms">Advance with focused projects, sharp notes, and useful software.</h1>
       </section>
 
-      <section class="hero-panel panel">
+      <section class="panel hero-panel">
         <div class="hero-copy">
           <p class="panel-label">Fast-track the next build</p>
           <h2>Hi, I am <span class="hover-pop" style="display: inline-block">Gathik</span>. I build full stack
-            applications and keep Obsidian lab for ideas.</h2>
-          <p>
-            This site is my public layer: selected work, cleaned-up notes, and a simple publishing
-            workflow that I use to share my ideas.
-          </p>
-          <div class="trend-grid" aria-label="Current focus areas">
-            <span># Machine Learning & AI</span>
-            <span>{ } Full-stack apps</span>
-            <span>o Product systems</span>
-            <span>+ Public notes</span>
-          </div>
+            applications and keep an Obsidian lab for ideas.</h2>
+          <p>This site is my public layer: selected work, cleaned-up notes, and a simple publishing workflow that I
+            use to share my ideas.</p>
         </div>
-        <aside class="coach-card">
-          <div class="coach-image" aria-hidden="true">
-            <img src="assets/images/mardown-icon.png"
-              alt="A markdown file logo, representing my focus on building a public note-taking system." />
-          </div>
-          <h3>Use my compact portfolio system</h3>
-          <p>Home, notes, and Obsidian-friendly markdown publishing in one lightweight repo.</p>
-        </aside>
-        <!-- These are related to the above two divs -->
-        <a class="panel-cta hover-pop" href="projects.html">Explore my projects</a>
-        <a class="panel-cta panel-cta-alt hover-pop" href="notes.html">Fork this website</a>
+        <figure class="hero-graph">
+          <canvas id="noteGraph" role="img"
+            aria-label="An animated graph of my notes, clustered around the topics they are tagged with."></canvas>
+          <figcaption>
+            <p class="graph-caption" id="graphCaption">My notes, clustered by topic. Hover to trace a topic, click to
+              open it, drag to rearrange.</p>
+            <ul class="graph-legend" aria-hidden="true">
+              <li><i class="legend-topic"></i>Topic</li>
+              <li><i class="legend-note"></i>Note</li>
+            </ul>
+          </figcaption>
+        </figure>
       </section>
 
-      <section class="panel progress-panel" id="learning">
+      <nav class="cta-strip" aria-label="Where to go next">
+        <a class="panel-cta panel-cta-blue hover-pop" href="projects.html">Explore my projects</a>
+        <a class="panel-cta panel-cta-ink hover-pop" href="notes.html">Read my notes</a>
+        <a class="panel-cta panel-cta-plain hover-pop" href="https://github.com/gathik-jindal/website" target="_blank"
+          rel="noreferrer">Fork this website</a>
+      </nav>
+
+      <div class="marquee" role="region" aria-label="Current focus areas">
+        <div class="marquee-track">
+          <ul class="marquee-group">
+          <li>Machine learning &amp; AI</li>
+          <li>Full-stack apps</li>
+          <li>Product systems</li>
+          <li>Public notes</li>
+          </ul>
+          <ul class="marquee-group" aria-hidden="true">
+          <li>Machine learning &amp; AI</li>
+          <li>Full-stack apps</li>
+          <li>Product systems</li>
+          <li>Public notes</li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="panel progress-panel" id="learning" data-reveal>
         <div class="panel-heading">
           <h2>I keep learning!</h2>
-          <span>67%</span>
+          <span class="progress-count" data-count="67" aria-label="67 percent">67%</span>
         </div>
-        <div class="progress-track"><span style="width: 67%"></span></div>
+        <div class="progress-track"><span data-progress style="--w: 67%"></span></div>
       </section>
 
       <section class="split-grid" id="projects">
-        <article class="panel course-card hover-pop">
+        <article class="panel course-card hover-pop" data-reveal>
           <p class="panel-label">Featured repository</p>
           <h2>Multipipeline-ETL</h2>
           <p>Developed a comparative ETL framework to process over 3.4 million semi-structured NASA web server logs
             across Apache Pig, Hadoop MapReduce, MongoDB, and Apache Hive.</p>
-          <a href="https://github.com/Bhavzzzzzz/Multipipeline-ETL"
-            target="_blank">github.com/Bhavzzzzzz/Multipipeline-ETL</a>
+          <div class="card-foot">
+            <a class="outline-button hover-pop" href="https://github.com/Bhavzzzzzz/Multipipeline-ETL" target="_blank"
+              rel="noreferrer">View on GitHub</a>
+          </div>
         </article>
-        <article class="panel plan-card hover-pop">
-          <p class="panel-label">Currently Working on</p>
+        <article class="panel plan-card hover-pop" data-reveal style="--d: 100ms">
+          <p class="panel-label">Currently working on</p>
           <h2>This website!</h2>
           <p>Convert a private note into a public post, then link it to this project.</p>
-          <a class="outline-button hover-pop" href="projects.html">View all projects</a>
+          <div class="card-foot">
+            <a class="outline-button hover-pop" href="projects.html">View all projects</a>
+          </div>
         </article>
       </section>
     </main>
   </div>
 
-  <footer class="bottom-bar" id="contact">
-    <div class="bottom-bar-inner">
-      <div class="bottom-bar-intro">
+  <footer class="site-footer" id="contact">
+    <div class="footer-inner">
+      <div class="footer-intro">
         <p class="panel-label">Next step</p>
         <h2>Let us build something useful.</h2>
-        <p>Reach out for internships, collaborations, project ideas, or just to compare notes.
+        <p>Reach out for internships, collaborations, project ideas, or just to compare notes.</p>
       </div>
-      <div class="bottom-bar-grid" aria-label="bottom-bar links">
-        <a class="bottom-bar-card hover-pop" href="mailto:gathik.jindal@outlook.com">
+      <div class="footer-links">
+        <a class="footer-card hover-pop" href="mailto:gathik.jindal@outlook.com">
           <span>Email</span>
           <strong>gathik.jindal@outlook.com</strong>
         </a>
-        <a class="bottom-bar-card hover-pop" href="https://github.com/gathik-jindal" target="_blank" rel="noreferrer">
+        <a class="footer-card hover-pop" href="https://github.com/gathik-jindal" target="_blank" rel="noreferrer">
           <span>GitHub</span>
           <strong>github.com/gathik-jindal</strong>
         </a>
-        <a class="bottom-bar-card hover-pop" href="https://www.linkedin.com/in/gathik-jindal-10851428b/" target="_blank"
+        <a class="footer-card hover-pop" href="https://www.linkedin.com/in/gathik-jindal-10851428b/" target="_blank"
           rel="noreferrer">
           <span>LinkedIn</span>
           <strong>linkedin.com/in/gathik-jindal</strong>
@@ -122,6 +169,7 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/graph.js"></script>
 </body>
 
 </html>

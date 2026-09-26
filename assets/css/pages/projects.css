@@ -1,247 +1,138 @@
+/* =========================================================
+   Project grid. The 1.5px gap shows the ink behind it, so the
+   grid lines stay crisp for any number of cards.
+   ========================================================= */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 0;
-    margin-bottom: 0;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--rule);
+    border-bottom: var(--rule) solid var(--line);
+    background: var(--line);
 }
 
 .project-card {
     display: flex;
     flex-direction: column;
+    gap: 12px;
     min-height: 360px;
-    padding: 24px 20px;
-    border-right: 1.5px solid var(--line);
-    border-bottom: 1.5px solid var(--line);
+    padding: 22px 18px;
     background: var(--paper);
-    position: relative;
 }
 
-.project-card:nth-child(3n) {
-    border-right: 0;
+.project-card .project-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
 }
 
-.project-header {
-    margin-bottom: 16px;
+.project-card .panel-label {
+    margin: 0;
 }
 
-.project-header h2 {
-    margin: 8px 0 0;
-    font-size: 24px;
-    line-height: 1.1;
+/* Status badge, in the same pill shape as tags */
+.status {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    margin: 0;
+    padding: 0 9px;
+    border: var(--rule) solid var(--line);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.status-done {
+    background: var(--yellow);
+    color: var(--on-yellow);
+}
+
+.status-active {
+    background: var(--blue);
+    color: var(--on-blue);
+}
+
+.status-next {
+    border-style: dashed;
+    background: var(--paper);
+}
+
+.project-card h2 {
+    margin: 4px 0 0;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
 }
 
 .project-description {
     flex: 1;
-    margin: 0 0 16px;
+    margin: 0;
     color: var(--muted);
     line-height: 1.5;
-    font-size: 14px;
 }
 
-.project-tags {
+.project-foot {
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 16px 0;
-}
-
-.tag-badge {
-    display: inline-block;
-    padding: 4px 12px;
-    background: var(--paper-deep);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--ink);
-}
-
-.project-link {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 8px 0;
-    color: var(--blue);
-    font-weight: 700;
-    font-size: 13px;
-    border-bottom: 1.5px solid var(--blue);
-    transition: all 0.2s ease;
-}
-
-.project-link:hover {
-    color: var(--ink);
-    border-bottom-color: var(--ink);
+    align-items: center;
+    min-height: 36px;
+    margin-top: 6px;
 }
 
 .coming-soon {
-    margin: 12px 0 0;
+    margin: 0;
     color: var(--muted);
-    font-size: 13px;
-    font-style: italic;
-}
-
-.focus-panel {
-    margin-top: 0;
-    padding: 24px 20px;
-    border-top: 1.5px solid var(--line);
-    border-bottom: 1.5px solid var(--line);
-}
-
-.focus-header {
-    margin-bottom: 20px;
-}
-
-.focus-header h2 {
-    margin: 8px 0 0;
-    font-size: 24px;
-    line-height: 1.1;
-}
-
-.focus-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-    margin-top: 16px;
-}
-
-.focus-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 16px;
-    background: var(--paper-deep);
-    border: 1px solid var(--line);
-    border-radius: 6px;
-}
-
-.focus-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 28px;
-    height: 28px;
-    background: var(--ink);
-    color: var(--paper);
-    font-weight: bold;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-.focus-text {
-    font-size: 14px;
+    font-family: var(--font-mono);
+    font-size: 12px;
     font-weight: 600;
-    color: var(--ink);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
 
-.cta-panel {
-    margin-top: 0;
-    padding: 28px 20px;
-    border-top: 1.5px solid var(--line);
-    background: var(--paper-deep);
-    text-align: center;
+.focus-heading {
+    padding: 16px 18px;
 }
 
-.cta-panel h2 {
-    margin: 12px 0;
-    font-size: 28px;
-    line-height: 1.1;
+.focus-heading .panel-label {
+    margin: 0 0 4px;
 }
 
-.cta-panel p:not(.panel-label) {
-    margin: 12px auto;
-    max-width: 600px;
-    color: var(--muted);
-    line-height: 1.5;
+.focus-heading h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.015em;
 }
 
-.cta-buttons {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    margin-top: 20px;
-    flex-wrap: wrap;
+.page-projects .marquee {
+    border-bottom: 0;
 }
 
-.primary-button,
-.secondary-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 38px;
-    padding: 0 24px;
-    border: 1.5px solid var(--line);
-    border-radius: 4px;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.primary-button {
-    background: var(--ink);
-    color: var(--paper);
-}
-
-.primary-button:hover {
-    background: var(--blue);
-}
-
-.secondary-button {
-    background: var(--paper);
-    color: var(--ink);
-}
-
-.secondary-button:hover {
-    background: var(--paper-deep);
-}
-
-/* Responsive design */
-@media (max-width: 1200px) {
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 1100px) {
     .projects-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .project-card:nth-child(3n) {
-        border-right: 1.5px solid var(--line);
-    }
-
-    .project-card:nth-child(2n) {
-        border-right: 0;
+    /* An odd last card spans the row so no empty cell shows */
+    .project-card:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        min-height: 260px;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 700px) {
     .projects-grid {
         grid-template-columns: 1fr;
     }
 
     .project-card {
-        border-right: 0;
-        border-bottom: 1.5px solid var(--line);
-        min-height: auto;
-    }
-
-    .project-card:last-child {
-        border-bottom: 0;
-    }
-
-    .focus-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .cta-buttons {
-        flex-direction: column;
-    }
-
-    .primary-button,
-    .secondary-button {
-        width: 100%;
-    }
-
-    .cta-panel {
-        padding: 20px;
-    }
-
-    .cta-panel h2 {
-        font-size: 22px;
+        min-height: 0;
     }
 }

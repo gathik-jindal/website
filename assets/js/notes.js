@@ -9,6 +9,7 @@ const tagToggle = document.querySelector("#tagToggle");
 const ASSET_DIR = "obsidian-files/6 - Assets/";
 
 let posts = [];
+let noteLookup = new Map();
 let activeTag = "all";
 let searchTerm = "";
 let tagsExpanded = false;
@@ -21,38 +22,67 @@ function setPostGridVisible(isVisible) {
 async function loadPosts() {
   try {
     const response = await fetch("content/obsidian-notes-index.json");
-    posts = await response.json();
+    if (!response.ok) throw new Error(`Index request failed: ${response.status}`);
+    posts = (await response.json()).map(normalisePost);
+    buildNoteLookup();
+    applyTagFromUrl();
     renderTags();
     renderPosts();
     renderSidebarNotes();
     openPostFromHash();
   } catch {
-    postGrid.innerHTML = '<p class="reader">Notes need an index. Run <code>python scripts/build_obsidian_index.py</code>, then serve the site locally.</p>';
+    postGrid.innerHTML = '<p class="empty-state">The notes index is missing. Run <code>python scripts/build_obsidian_index.py</code>, then serve the site with <code>python -m http.server</code>.</p>';
+  }
+}
+
+// Tags like "4 - Tags/Containers" come from nested Obsidian folders; keep only the name.
+function normalisePost(post) {
+  const tags = [...new Set((post.tags || []).map((tag) => String(tag).split("/").pop().trim()))];
+  return { ...post, tags, status: post.status || [] };
+}
+
+// Lets [[Wiki Links]] inside a note open the note they point to.
+function buildNoteLookup() {
+  noteLookup = new Map();
+  posts.forEach((post) => {
+    const stem = post.file.split("/").pop().replace(/\.md$/i, "");
+    noteLookup.set(stem.toLowerCase(), post.slug);
+    noteLookup.set(post.title.toLowerCase(), post.slug);
+  });
+}
+
+function applyTagFromUrl() {
+  const tag = new URLSearchParams(window.location.search).get("tag");
+  if (tag && posts.some((post) => post.tags.includes(tag))) {
+    activeTag = tag;
+    tagsExpanded = true;
+    tagToggle.textContent = "Show less";
   }
 }
 
 function renderTags() {
   const tags = [...new Set(posts.flatMap((post) => post.tags))].sort();
-  tagList.innerHTML = [
-    '<button class="tag is-active" type="button" data-tag="all">All</button>',
-    ...tags.map((tag) => `<button class="tag" type="button" data-tag="${escapeHtml(tag)}">${escapeHtml(tag)}</button>`),
-  ].join("");
+  const button = (value, label) => {
+    const active = value === activeTag ? " is-active" : "";
+    return `<button class="tag${active}" type="button" data-tag="${escapeHtml(value)}" aria-pressed="${value === activeTag}">${escapeHtml(label)}</button>`;
+  };
+  tagList.innerHTML = [button("all", "All"), ...tags.map((tag) => button(tag, tag))].join("");
   tagList.classList.toggle("is-collapsed", !tagsExpanded);
 }
 
 function renderPosts() {
   const visible = getVisiblePosts();
   postGrid.innerHTML = visible
-    .map((post) => `
-      <button class="post-card hover-pop" type="button" data-slug="${escapeHtml(post.slug)}">
+    .map((post, index) => `
+      <button class="post-card hover-pop" type="button" data-slug="${escapeHtml(post.slug)}" style="--i:${index}">
         <span>
           <h2>${escapeHtml(post.title)}</h2>
-          <p>${escapeHtml(post.description)}</p>
+          <p>${escapeHtml(stripHighlights(post.description))}</p>
         </span>
         <span class="post-meta">${escapeHtml(post.dateLabel || "")}</span>
       </button>
     `)
-    .join("") || '<p class="reader">No notes match that filter.</p>';
+    .join("") || '<p class="empty-state">No notes match that search. Try a shorter word, or pick "All" to clear the topic filter.</p>';
 }
 
 function renderSidebarNotes() {
@@ -81,10 +111,19 @@ async function openPost(slug, updateHash = true) {
   const post = posts.find((item) => item.slug === slug);
   if (!post) return;
 
-  const response = await fetch(encodeURI(post.file));
-  const markdown = await response.text();
+  let markdown = "";
+  try {
+    const response = await fetch(encodeURI(post.file));
+    if (!response.ok) throw new Error(response.status);
+    markdown = await response.text();
+  } catch {
+    markdown = `# ${post.title}\n\nThis note could not be loaded. Check that \`${post.file}\` exists, then rebuild the index.`;
+  }
   readerContent.innerHTML = renderNoteHeader(post) + markdownToHtml(stripNoteMetadata(markdown));
   reader.hidden = false;
+  reader.classList.remove("is-opening");
+  void reader.offsetWidth; // restart the opening animation
+  reader.classList.add("is-opening");
   setPostGridVisible(false);
   highlightActiveNote(slug);
   if (updateHash && window.location.hash !== `#${slug}`) {
@@ -218,13 +257,33 @@ function tableToHtml(lines) {
 function inline(value) {
   return escapeHtml(value)
     .replace(/!\[\[([^\]]+)\]\]/g, (_, asset) => `<img class="note-image" src="${encodeURI(ASSET_DIR + asset)}" alt="">`)
-    .replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, '<span class="wiki-link">$2</span>')
-    .replace(/\[\[([^\]]+)\]\]/g, '<span class="wiki-link">$1</span>')
+    .replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, (_, target, label) => wikiLink(target, label))
+    .replace(/\[\[([^\]]+)\]\]/g, (_, target) => wikiLink(target, target))
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>')
     .replace(/\*\*\*\*(.*?)\*\*\*\*/g, "<strong>$1</strong>")
     .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
     .replace(/\*(.*?)\*/g, "<em>$1</em>")
-    .replace(/`(.*?)`/g, "<code>$1</code>");
+    .replace(/`(.*?)`/g, "<code>$1</code>")
+    .replace(/==(?=\S)(.+?)(?<=\S)==/g, "<mark>$1</mark>");
+}
+
+// Obsidian ==highlights== read as noise in card previews.
+function stripHighlights(value) {
+  return String(value).replace(/==(?=\S)(.+?)(?<=\S)==/g, "$1");
+}
+
+function wikiLink(target, label) {
+  const name = target
+    .split("#")[0]
+    .replaceAll("&amp;", "&")
+    .replaceAll("&#039;", "'")
+    .replaceAll("&quot;", '"')
+    .trim()
+    .toLowerCase();
+  const slug = noteLookup.get(name);
+  return slug
+    ? `<a class="wiki-link" href="#${encodeURIComponent(slug)}">${label}</a>`
+    : `<span class="wiki-link">${label}</span>`;
 }
 
 function escapeHtml(value) {
@@ -240,7 +299,12 @@ tagList.addEventListener("click", (event) => {
   const button = event.target.closest("[data-tag]");
   if (!button) return;
   activeTag = button.dataset.tag;
-  tagList.querySelectorAll(".tag").forEach((tag) => tag.classList.toggle("is-active", tag === button));
+  tagList.querySelectorAll(".tag").forEach((tag) => {
+    tag.classList.toggle("is-active", tag === button);
+    tag.setAttribute("aria-pressed", String(tag === button));
+  });
+  const query = activeTag === "all" ? "" : `?tag=${encodeURIComponent(activeTag)}`;
+  history.replaceState(null, "", window.location.pathname + query);
   reader.hidden = true;
   setPostGridVisible(true);
   renderPosts();
@@ -275,7 +339,7 @@ readerClose.addEventListener("click", () => {
   reader.hidden = true;
   setPostGridVisible(true);
   highlightActiveNote("");
-  history.replaceState(null, "", window.location.pathname);
+  history.replaceState(null, "", window.location.pathname + window.location.search);
 });
 
 window.addEventListener("hashchange", openPostFromHash);
