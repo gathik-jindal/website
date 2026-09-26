@@ -8,12 +8,13 @@
   <title>Notes | Gathik Jindal</title>
   <link rel="icon" type="image/png" href="assets/images/mardown-icon.png">
   <script>
-    // Apply the saved (or OS) theme before first paint so the page never flashes.
+    // dark by default; light only if the visitor chose it with the toggle.
+    // Runs before first paint so the page never flashes.
     (function () {
       var root = document.documentElement;
       var theme = null;
       try { theme = localStorage.getItem("theme"); } catch (e) { }
-      if (!theme) theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      if (theme !== "light") theme = "dark";
       root.setAttribute("data-theme", theme);
       root.classList.add("js");
     })();
@@ -39,16 +40,19 @@
         <a class="hover-pop" href="#contact">Contact</a>
       </nav>
       <div class="top-actions">
-        <button class="icon-button theme-toggle hover-pop" id="themeToggle" type="button" aria-label="Switch to dark theme">
+        <button class="icon-button theme-toggle hover-pop" id="themeToggle" type="button"
+          aria-label="Switch to dark theme">
           <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="4.5" />
-            <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" />
+            <path
+              d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" />
           </svg>
           <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" />
           </svg>
         </button>
-        <a class="icon-button hover-pop" href="https://github.com/gathik-jindal" target="_blank" rel="noreferrer" aria-label="GitHub">
+        <a class="icon-button hover-pop" href="https://github.com/gathik-jindal" target="_blank" rel="noreferrer"
+          aria-label="GitHub">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path
               d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.19-3.37-1.19-.45-1.16-1.1-1.46-1.1-1.46-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.51 9.51 0 0 1 12 6.01c.85 0 1.7.11 2.5.34 1.9-1.29 2.74-1.02 2.74-1.02.55 1.37.2 2.39.1 2.64.64.7 1.02 1.59 1.02 2.68 0 3.83-2.34 4.67-4.56 4.92.36.31.68.92.68 1.86v2.76c0 .26.18.58.69.48A10 10 0 0 0 12 2Z" />

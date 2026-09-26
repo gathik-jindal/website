@@ -21,7 +21,7 @@ function setPostGridVisible(isVisible) {
 
 async function loadPosts() {
   try {
-    const response = await fetch("content/obsidian-notes-index.json");
+    const response = await fetch("content/obsidian-notes-index.json", { cache: "no-cache" });
     if (!response.ok) throw new Error(`Index request failed: ${response.status}`);
     posts = (await response.json()).map(normalisePost);
     buildNoteLookup();
@@ -113,7 +113,7 @@ async function openPost(slug, updateHash = true) {
 
   let markdown = "";
   try {
-    const response = await fetch(encodeURI(post.file));
+    const response = await fetch(encodeURI(post.file), { cache: "no-cache" });
     if (!response.ok) throw new Error(response.status);
     markdown = await response.text();
   } catch {

@@ -38,22 +38,6 @@
     color-scheme: dark;
 }
 
-/* No-JS fallback: follow the OS setting */
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme]) {
-        --paper: #10162f;
-        --paper-deep: #1d2548;
-        --ink: #fff0e5;
-        --muted: #b9bccb;
-        --line: #6c7294;
-        --blue: #8a70ff;
-        --on-blue: #10162f;
-        --soft: rgba(255, 240, 229, 0.08);
-        --pattern: rgba(255, 240, 229, 0.1);
-        color-scheme: dark;
-    }
-}
-
 /* =========================================================
    Base
    ========================================================= */

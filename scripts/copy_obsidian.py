@@ -71,6 +71,11 @@ def parse_args() -> argparse.Namespace:
         help="Replace the destination folder if it already exists.",
     )
     parser.add_argument(
+        "--no-index",
+        action="store_true",
+        help="Do not rebuild content/obsidian-notes-index.json after copying.",
+    )
+    parser.add_argument(
         "--exclude",
         action="append",
         default=[],
@@ -91,6 +96,17 @@ def main() -> None:
 
     copy_tree(source, destination, set(args.exclude), args.overwrite)
     print(f"Copied Obsidian files from:\n  {source}\nto:\n  {destination}")
+
+    # Keep the site (notes page and homepage graph) in sync with what was copied.
+    if args.no_index:
+        return
+    import build_obsidian_index
+
+    if build_obsidian_index.NOTES_DIR.exists():
+        build_obsidian_index.main()
+    else:
+        print("Skipped rebuilding the notes index: "
+              f"{build_obsidian_index.NOTES_DIR.relative_to(repo_root).as_posix()} does not exist.")
 
 
 if __name__ == "__main__":

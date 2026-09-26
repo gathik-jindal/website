@@ -494,7 +494,9 @@
     resize();
     let posts = FALLBACK;
     try {
-      const response = await fetch(INDEX_URL);
+      // "no-cache" revalidates with the server, so a freshly rebuilt index
+      // appears on the next refresh instead of a stale cached copy.
+      const response = await fetch(INDEX_URL, { cache: "no-cache" });
       if (response.ok) posts = await response.json();
     } catch {
       /* keep the fallback graph */

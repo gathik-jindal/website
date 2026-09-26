@@ -8,8 +8,10 @@ import re
 from pathlib import Path
 
 
-NOTES_DIR = Path("obsidian-files/2 - Full Notes")
-OUTPUT = Path("content/obsidian-notes-index.json")
+# Resolve paths from the repo root so the script works from any folder.
+REPO_ROOT = Path(__file__).resolve().parents[1]
+NOTES_DIR = REPO_ROOT / "obsidian-files" / "2 - Full Notes"
+OUTPUT = REPO_ROOT / "content" / "obsidian-notes-index.json"
 
 
 def slugify(value: str) -> str:
@@ -77,7 +79,7 @@ def parse_note(path: Path) -> dict[str, object]:
         "dateLabel": date_label,
         "tags": tags,
         "status": status,
-        "file": str(path.as_posix()),
+        "file": path.relative_to(REPO_ROOT).as_posix(),
     }
 
 
@@ -88,7 +90,7 @@ def main() -> None:
     notes = [parse_note(path) for path in sorted(NOTES_DIR.glob("*.md"), key=lambda item: item.stem.lower())]
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(json.dumps(notes, indent=2), encoding="utf-8")
-    print(f"Wrote {len(notes)} notes to {OUTPUT}")
+    print(f"Wrote {len(notes)} notes to {OUTPUT.relative_to(REPO_ROOT).as_posix()}")
 
 
 if __name__ == "__main__":

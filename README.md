@@ -1,6 +1,6 @@
 # Gathik Jindal Portfolio
 
-A dependency-free portfolio and Obsidian-powered notes site. The design follows Codecademy's look: beige paper, navy ink, "hyper" blue and yellow accents, sharp grid borders, a hatched hover shadow, Inter for text and IBM Plex Mono for labels. It has a light and a dark theme, and the home page includes a live graph of the published notes.
+A dependency-free portfolio and Obsidian-powered notes site. The design follows Codecademy's look: beige paper, navy ink, "hyper" blue and yellow accents, sharp grid borders, a hatched hover shadow, Inter for text and IBM Plex Mono for labels. It opens in light mode; visitors can switch to dark with the toggle, and that choice is remembered. The home page includes a live graph of the published notes.
 
 ## What This Repo Does
 
@@ -60,6 +60,8 @@ After adding or editing markdown files in `obsidian-files/2 - Full Notes`, rebui
 python scripts/build_obsidian_index.py
 ```
 
+The notes page and the homepage graph both read this index, so refresh the page after rebuilding and they update. Both scripts work from any folder (repo root or `scripts/`).
+
 The script currently scans only top-level `.md` files in `2 - Full Notes`. Subfolders are ignored for now.
 
 ## Expected Note Format
@@ -97,6 +99,8 @@ python scripts/copy_obsidian.py "C:\path\to\your\vault" --dest obsidian-files --
 ```
 
 Use this carefully if `obsidian-files` already has changes, because `--overwrite` replaces the destination.
+
+After copying, the script rebuilds `content/obsidian-notes-index.json` automatically, so one command updates the notes page and the homepage graph. Add `--no-index` to skip that step.
 
 ## Publishing
 
