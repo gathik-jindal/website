@@ -39,7 +39,15 @@
   let dragMoved = false;
   let running = false;
   let onScreen = true;
+  let defaultCaption = "";
   const pointer = { x: 0, y: 0, inside: false };
+
+  // Touch: tap once to preview a node, tap it again to open it.
+  // A finger that moves (a scroll) or is held down never counts as a tap.
+  const TAP_SLOP = 10; // px a finger may wander and still count as a tap
+  const TAP_TIME = 450; // ms
+  let touchStart = null;
+  let selected = null;
 
   /* ------------------------------------------------------------ helpers */
   function readColors() {
@@ -145,8 +153,9 @@
     if (caption && posts !== FALLBACK) {
       const how = window.matchMedia("(pointer: fine)").matches
         ? "Hover to trace a topic, click to open it, drag to rearrange."
-        : "Tap a topic or a note to open it.";
+        : "Tap a topic or note to highlight it, then tap it again to open it.";
       caption.textContent = `${posts.length} notes linked across ${topics.size} topics. ${how}`;
+      defaultCaption = caption.textContent;
     }
 
     if (reduceMotion) {
@@ -223,6 +232,13 @@
           node.vx += (dx / d) * push;
           node.vy += (dy / d) * push;
         }
+      }
+
+      // A node tapped on a phone holds still so the second tap lands on it.
+      if (node === selected) {
+        node.vx = 0;
+        node.vy = 0;
+        return;
       }
 
       if (node === dragging) {
@@ -419,6 +435,13 @@
 
   canvas.addEventListener("pointermove", (event) => {
     const { x, y } = localPoint(event);
+
+    if (event.pointerType === "touch") {
+      // A finger that travels is scrolling, not tapping.
+      if (touchStart && Math.hypot(x - touchStart.x, y - touchStart.y) > TAP_SLOP) touchStart = null;
+      return;
+    }
+
     pointer.x = x;
     pointer.y = y;
     pointer.inside = true;
@@ -433,7 +456,8 @@
     if (reduceMotion) draw();
   });
 
-  canvas.addEventListener("pointerleave", () => {
+  canvas.addEventListener("pointerleave", (event) => {
+    if (event.pointerType === "touch") return; // touch "leaves" on every lift; keep the selection
     pointer.inside = false;
     if (!dragging) hovered = null;
     if (reduceMotion) draw();
@@ -441,14 +465,15 @@
 
   canvas.addEventListener("pointerdown", (event) => {
     const { x, y } = localPoint(event);
-    const node = nodeAt(x, y, event.pointerType === "touch" ? 12 : 6);
-    if (!node) return;
 
-    // Touch: a tap opens the node; dragging would fight page scrolling.
+    // Touch: only note where the finger landed; the decision waits for pointerup.
     if (event.pointerType === "touch") {
-      open(node);
+      touchStart = { x, y, time: performance.now() };
       return;
     }
+
+    const node = nodeAt(x, y);
+    if (!node) return;
 
     dragging = node;
     dragging.startX = x;
@@ -461,6 +486,10 @@
   });
 
   canvas.addEventListener("pointerup", (event) => {
+    if (event.pointerType === "touch") {
+      handleTap(event);
+      return;
+    }
     if (!dragging) return;
     const node = dragging;
     dragging = null;
@@ -468,6 +497,38 @@
     canvas.style.cursor = hovered ? "pointer" : "grab";
     if (!dragMoved) open(node);
     else kick(0.3);
+  });
+
+  function setCaption(text) {
+    if (caption) caption.textContent = text;
+  }
+
+  function select(node) {
+    selected = node;
+    hovered = node;
+    setCaption(node ? `Tap "${node.label}" again to open it, or tap empty space to clear.` : defaultCaption);
+    draw();
+  }
+
+  function handleTap(event) {
+    const start = touchStart;
+    touchStart = null;
+    if (!start || performance.now() - start.time > TAP_TIME) return;
+
+    const { x, y } = localPoint(event);
+    const node = nodeAt(x, y, 8);
+    if (!node) {
+      select(null);
+    } else if (node === selected) {
+      open(node);
+    } else {
+      select(node);
+    }
+  }
+
+  // The browser cancels the pointer when it takes over for scrolling.
+  canvas.addEventListener("pointercancel", () => {
+    touchStart = null;
   });
 
   /* ------------------------------------------------------------ boot */
@@ -503,6 +564,7 @@
     }
     if (document.fonts?.ready) await document.fonts.ready;
     build(posts);
+    if (!defaultCaption && caption) defaultCaption = caption.textContent;
     draw();
     start();
   }

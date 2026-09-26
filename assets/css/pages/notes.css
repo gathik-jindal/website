@@ -416,4 +416,35 @@
     .post-card:last-child:nth-child(odd) {
         border-right: 0;
     }
+
+    /* Date sits above the title so the text gets the full width */
+    .post-card {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        min-height: 0;
+    }
+
+    .post-meta {
+        order: -1;
+        color: var(--muted);
+    }
+
+    .post-card h2 {
+        font-size: 20px;
+    }
+
+    /* Show fewer tags before "Show more" so notes appear sooner */
+    .tag-list.is-collapsed .tag:nth-of-type(n + 7) {
+        display: none;
+    }
+
+    .filter-panel,
+    .reader {
+        padding: 16px;
+    }
+
+    .reader p,
+    .reader li {
+        font-size: 16px;
+    }
 }

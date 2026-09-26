@@ -618,8 +618,13 @@ img {
 
     .topnav a {
         flex: 1 0 auto;
-        min-height: 44px;
-        padding: 0 16px;
+        min-height: 42px;
+        padding: 0 14px;
+    }
+
+    .logo,
+    .top-actions .icon-button {
+        min-height: 48px;
     }
 
     .upgrade {
@@ -643,7 +648,50 @@ img {
     }
 
     html {
-        scroll-padding-top: 104px;
+        scroll-padding-top: 100px;
+    }
+}
+
+/* =========================================================
+   Touch screens
+   Phones keep :hover "stuck" after a tap, so there the lift
+   and hatched shadow show only while a finger is pressing.
+   ========================================================= */
+@media (hover: none) {
+    a,
+    button {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .hover-pop:hover {
+        z-index: auto;
+        transform: none;
+        outline: none;
+    }
+
+    .hover-pop:hover::before {
+        opacity: 0;
+    }
+
+    .hover-pop:active {
+        z-index: 12;
+        transform: translate(3px, -3px);
+        outline: var(--rule) solid var(--line);
+        outline-offset: calc(var(--rule) * -1);
+    }
+
+    .hover-pop:active::before {
+        opacity: 1;
+    }
+
+    [data-split] .word:hover .word-inner,
+    .marquee-group li:hover,
+    .footer-card:hover strong {
+        color: inherit;
+    }
+
+    .marquee:hover .marquee-track {
+        animation-play-state: running;
     }
 }
 

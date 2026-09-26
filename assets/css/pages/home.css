@@ -260,7 +260,7 @@
     }
 
     .hero-graph canvas {
-        min-height: 380px;
+        min-height: 360px;
     }
 
     .hero-graph figcaption {
