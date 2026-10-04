@@ -581,15 +581,22 @@ img {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    gap: 4px 14px;
+    gap: 4px 10px;
     margin: 0;
     font-size: 17px;
     font-weight: 700;
     letter-spacing: -0.01em;
 }
 
-.footer-cta .panel-label {
-    margin: 0;
+/* Same type as the sentence, marked with the yellow underline the
+   page curtain uses under "gathik" */
+.footer-kicker {
+    padding-bottom: 1px;
+    border-bottom: 3px solid var(--yellow);
+}
+
+.footer-arrow {
+    color: var(--muted);
 }
 
 .footer-actions {

@@ -67,7 +67,7 @@ The tools on the About page are `<li class="tool" data-cat="...">` tags in one m
 
 ## After changing CSS or JS
 
-Every page loads its stylesheets and scripts with a version query, such as `base.css?v=5`. Browsers and GitHub Pages cache these files, so bump the number in all four HTML files whenever you change a `.css` or `.js` file, or visitors may keep seeing the old styles.
+Every page loads its stylesheets and scripts with a version query, such as `base.css?v=6`. Browsers and GitHub Pages cache these files, so bump the number in all four HTML files whenever you change a `.css` or `.js` file, or visitors may keep seeing the old styles.
 
 ## Update Notes
 
