@@ -1,0 +1,511 @@
+/* =========================================================
+   Shared section heading: the last phrase sits on a yellow
+   marker, like the name in the home page hero.
+   ========================================================= */
+.section-title {
+    max-width: 22ch;
+    margin: 0;
+    font-size: clamp(28px, 3.6vw, 42px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+}
+
+.section-title em {
+    padding: 0 6px;
+    background: var(--yellow);
+    color: var(--on-yellow);
+    font-style: normal;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
+/* =========================================================
+   Intro: who I am on the left, quick facts on the right
+   ========================================================= */
+.about-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
+}
+
+.about-intro {
+    padding: 22px 18px 28px;
+    border-right: var(--rule) solid var(--line);
+}
+
+.about-intro h1 {
+    max-width: 16ch;
+    margin: 0;
+    font-size: clamp(34px, 5vw, 60px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+}
+
+.about-intro .header-lede {
+    margin-top: 16px;
+}
+
+.fact-list {
+    display: grid;
+    align-content: center;
+    margin: 0;
+    background-color: var(--paper-deep);
+    background-image: radial-gradient(var(--pattern) 1.2px, transparent 1.4px);
+    background-size: 14px 14px;
+}
+
+.fact-list div {
+    display: grid;
+    gap: 2px;
+    padding: 12px 18px;
+    border-bottom: var(--rule) solid var(--line);
+}
+
+.fact-list div:last-child {
+    border-bottom: 0;
+}
+
+.fact-list dt {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.fact-list dd {
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+/* =========================================================
+   How I work
+   ========================================================= */
+.about-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+    gap: 18px 32px;
+    padding: 32px 18px;
+}
+
+.about-prose p {
+    max-width: 62ch;
+    margin: 0;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.about-prose p + p {
+    margin-top: 14px;
+}
+
+/* =========================================================
+   Tools stack: category tags over one mixed cloud of tools.
+   Hovering a tag dims every tool outside it (about.js).
+   ========================================================= */
+.tools-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+    align-items: end;
+    gap: 12px 32px;
+    padding: 32px 18px 22px;
+}
+
+.tools-head p {
+    max-width: 52ch;
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+.tool-cats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0 18px 18px;
+    border-bottom: var(--rule) solid var(--line);
+}
+
+.tool-cat {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 34px;
+    padding: 0 12px;
+    border: var(--rule) solid var(--line);
+    border-radius: 999px;
+    background: var(--paper);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 150ms ease, color 150ms ease;
+}
+
+.tool-cat span {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    transition: color 150ms ease;
+}
+
+.tool-cat.is-related {
+    background: var(--paper-deep);
+}
+
+.tool-cat.is-active,
+.tool-cat[aria-pressed="true"] {
+    background: var(--yellow);
+    color: var(--on-yellow);
+}
+
+.tool-cat.is-active span,
+.tool-cat[aria-pressed="true"] span {
+    color: var(--on-yellow);
+}
+
+/* Tags flow at their natural width, mixed across categories */
+.tool-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+    padding: 18px;
+    list-style: none;
+}
+
+.tool {
+    display: grid;
+    flex: 0 1 auto;
+    grid-template-columns: 38px auto;
+    grid-template-rows: auto auto;
+    column-gap: 10px;
+    align-items: center;
+    padding: 8px 10px 8px 8px;
+    border: var(--rule) solid var(--line);
+    border-radius: 4px;
+    background: var(--paper);
+    transition: opacity 200ms ease, transform 200ms var(--ease-out), background-color 200ms ease;
+}
+
+/* Icons are masks, so they take the text colour in both themes */
+.tool-icon {
+    display: grid;
+    grid-row: 1 / 3;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border: var(--rule) solid var(--line);
+    border-radius: 4px;
+    background: var(--paper-deep);
+    font-style: normal;
+    transition: background-color 200ms ease, color 200ms ease;
+}
+
+/* The mask image is set inline on the <b>, so its URL resolves
+   against the page rather than this stylesheet */
+.tool-icon b {
+    width: 20px;
+    height: 20px;
+    background: currentColor;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+.tool-letters {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.tool span {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.tool small {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+.tool:hover .tool-icon,
+.tool.is-match .tool-icon {
+    background: var(--yellow);
+    color: var(--on-yellow);
+}
+
+.tool-cloud.is-filtering .tool:not(.is-match) {
+    opacity: 0.25;
+}
+
+.tool-cloud.is-filtering .tool.is-match {
+    background: var(--paper-deep);
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   Principles: numbered 3 x 2 grid
+   ========================================================= */
+.principles > .section-title {
+    max-width: none;
+    padding: 32px 18px 22px;
+}
+
+.principle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--rule);
+    border-top: var(--rule) solid var(--line);
+    background: var(--line);
+    counter-reset: principle;
+}
+
+.principle {
+    padding: 20px 18px 24px;
+    background: var(--paper);
+    counter-increment: principle;
+}
+
+.principle::before {
+    content: counter(principle, decimal-leading-zero);
+    display: block;
+    margin-bottom: 10px;
+    color: var(--blue);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.principle h3 {
+    margin: 0 0 6px;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+
+.principle p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+/* =========================================================
+   Milestones
+   ========================================================= */
+.milestones > .section-title {
+    max-width: none;
+    padding: 32px 18px 22px;
+}
+
+.milestone-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.milestone-list li {
+    display: grid;
+    grid-template-columns: 64px 120px minmax(0, 1fr);
+    align-items: baseline;
+    gap: 8px 16px;
+    padding: 16px 18px;
+    border-top: var(--rule) solid var(--line);
+}
+
+.milestone-list .status {
+    justify-self: start;
+}
+
+.milestone-year {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.milestone-title {
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    transition: color 150ms ease;
+}
+
+.milestone-title:hover {
+    color: var(--blue);
+}
+
+.milestone-list p {
+    margin: 4px 0 0;
+    color: var(--muted);
+    line-height: 1.45;
+}
+
+/* =========================================================
+   Contact
+   ========================================================= */
+.contact {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    border-bottom: 0;
+}
+
+.contact-intro {
+    padding: 32px 18px;
+    border-right: var(--rule) solid var(--line);
+    background: var(--yellow);
+    color: var(--on-yellow);
+}
+
+.contact-intro h2 {
+    max-width: 14ch;
+    margin: 0;
+    font-size: clamp(30px, 4vw, 48px);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+}
+
+.contact-intro h2 .word:hover .word-inner {
+    color: #3a10e5;
+}
+
+.contact-intro p:not(.panel-label) {
+    max-width: 44ch;
+    margin: 14px 0 0;
+    line-height: 1.5;
+}
+
+.contact-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--rule);
+    background: var(--line);
+}
+
+.contact-card {
+    display: grid;
+    align-content: center;
+    gap: 6px;
+    min-height: 100px;
+    padding: 18px;
+    background: var(--paper);
+}
+
+.contact-card span {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.contact-card strong {
+    overflow-wrap: anywhere;
+    font-size: 19px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    transition: color 150ms ease;
+}
+
+.contact-card:hover strong {
+    color: var(--blue);
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 1100px) {
+    .principle-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .about-hero,
+    .about-split,
+    .tools-head,
+    .contact {
+        grid-template-columns: 1fr;
+    }
+
+    .about-intro,
+    .contact-intro {
+        border-right: 0;
+        border-bottom: var(--rule) solid var(--line);
+    }
+}
+
+@media (max-width: 700px) {
+    .tool-cloud {
+        gap: 8px;
+        padding: 14px;
+    }
+
+    .tool {
+        grid-template-columns: 30px auto;
+        column-gap: 8px;
+        padding: 6px 8px 6px 6px;
+    }
+
+    .tool-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .tool-icon b {
+        width: 16px;
+        height: 16px;
+    }
+
+    .tool span {
+        font-size: 13px;
+    }
+
+    .tool small {
+        font-size: 11px;
+    }
+
+    .about-split,
+    .tools-head,
+    .principles > .section-title,
+    .milestones > .section-title {
+        padding-top: 24px;
+    }
+
+    .principle-grid,
+    .contact-links {
+        grid-template-columns: 1fr;
+    }
+
+    .milestone-list li {
+        grid-template-columns: auto 1fr;
+    }
+
+    .milestone-list li > div {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (hover: none) {
+    .tool:hover .tool-icon {
+        background: var(--paper-deep);
+        color: inherit;
+    }
+
+    .milestone-title:hover,
+    .contact-card:hover strong {
+        color: inherit;
+    }
+}

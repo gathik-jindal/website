@@ -428,8 +428,8 @@
   function open(node) {
     if (!node.slug && node.type === "note") return;
     const url = node.type === "note"
-      ? `notes.html#${encodeURIComponent(node.slug)}`
-      : `notes.html?tag=${encodeURIComponent(node.label)}`;
+      ? `notes#${encodeURIComponent(node.slug)}`
+      : `notes?tag=${encodeURIComponent(node.label)}`;
     (window.siteNavigate || ((href) => { window.location.href = href; }))(url);
   }
 

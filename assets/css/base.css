@@ -418,6 +418,40 @@ img {
     font-weight: 600;
 }
 
+/* Status badge, in the same pill shape as tags (projects, about) */
+.status {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    margin: 0;
+    padding: 0 9px;
+    border: var(--rule) solid var(--line);
+    border-radius: 999px;
+    background: var(--paper);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.status-done,
+.status-paper {
+    background: var(--yellow);
+    color: var(--on-yellow);
+}
+
+.status-active {
+    background: var(--blue);
+    color: var(--on-blue);
+}
+
+.status-discontinued {
+    border-style: dashed;
+    color: var(--muted);
+}
+
 /* =========================================================
    Motion (only when JS is running)
    ========================================================= */
@@ -529,69 +563,60 @@ img {
     transition: background-color 300ms ease;
 }
 
+/* A slim strip: the full contact section lives on the About page */
 .footer-inner {
-    display: grid;
-    grid-template-columns: minmax(0, 464px) 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 24px;
     width: var(--shell);
     margin: 0 auto;
+    padding: 16px 18px;
     border-right: var(--rule) solid var(--line);
     border-left: var(--rule) solid var(--line);
 }
 
-.footer-intro {
-    padding: 22px 18px;
-    border-right: var(--rule) solid var(--line);
-}
-
-.footer-intro h2 {
+.footer-cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 14px;
     margin: 0;
-    font-size: 30px;
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
 }
 
-.footer-intro p:not(.panel-label) {
-    margin: 12px 0 0;
+.footer-cta .panel-label {
+    margin: 0;
+}
+
+.footer-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 18px;
+}
+
+.footer-meta {
     color: var(--muted);
-    line-height: 1.45;
-}
-
-.footer-links {
-    display: grid;
-}
-
-.footer-card {
-    display: grid;
-    gap: 8px;
-    min-height: 86px;
-    padding: 18px;
-    border-bottom: var(--rule) solid var(--line);
-    background: var(--paper);
-}
-
-.footer-card:last-child {
-    border-bottom: 0;
-}
-
-.footer-card span {
     font-family: var(--font-mono);
     font-size: 12px;
     font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
 }
 
-.footer-card strong {
-    overflow-wrap: anywhere;
-    font-size: clamp(18px, 3vw, 28px);
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -0.015em;
-    transition: color 180ms ease;
+/* Underlined inline link, used next to buttons */
+.text-link {
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+    transition: color 150ms ease;
 }
 
-.footer-card:hover strong {
+.text-link:hover {
     color: var(--blue);
 }
 
@@ -642,11 +667,6 @@ img {
         display: none;
     }
 
-    .footer-intro {
-        border-right: 0;
-        border-bottom: var(--rule) solid var(--line);
-    }
-
     html {
         scroll-padding-top: 100px;
     }
@@ -686,7 +706,7 @@ img {
 
     [data-split] .word:hover .word-inner,
     .marquee-group li:hover,
-    .footer-card:hover strong {
+    .text-link:hover {
         color: inherit;
     }
 
